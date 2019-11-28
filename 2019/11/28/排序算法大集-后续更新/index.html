@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>ZhangRuZhang</title>
+  <title>排序算法大集(后续更新) | ZhangRuZhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="ZhangRuZhang">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+  <meta name="description" content="排序合集">
+<meta name="keywords" content="data structures and algorithms">
+<meta property="og:type" content="article">
+<meta property="og:title" content="排序算法大集(后续更新)">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;28&#x2F;%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%A4%A7%E9%9B%86-%E5%90%8E%E7%BB%AD%E6%9B%B4%E6%96%B0&#x2F;index.html">
 <meta property="og:site_name" content="ZhangRuZhang">
+<meta property="og:description" content="排序合集">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-28T13:08:21.298Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="ZhangRuZhang" type="application/atom+xml">
@@ -147,9 +151,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-排序算法大集-后续更新" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-排序算法大集-后续更新" class="article article-type-post " itemscope itemprop="blogPost">
 
   
   
@@ -158,13 +160,18 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/28/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%A4%A7%E9%9B%86-%E5%90%8E%E7%BB%AD%E6%9B%B4%E6%96%B0/">排序算法大集(后续更新)</a>
+    <h1 class="article-title" itemprop="name">
+      排序算法大集(后续更新)
     </h1>
   
 
         
         
+	<!-- 不蒜子统计 -->
+	<span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
 <a href="/2019/11/28/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%A4%A7%E9%9B%86-%E5%90%8E%E7%BB%AD%E6%9B%B4%E6%96%B0/" class="archive-article-date">
   	<time datetime="2019-11-28T13:04:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
 </a>
@@ -173,12 +180,56 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="排序合集"><a href="#排序合集" class="headerlink" title="排序合集"></a>排序合集</h1>
-        
-          <a class="article-more-a" href="/2019/11/28/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%A4%A7%E9%9B%86-%E5%90%8E%E7%BB%AD%E6%9B%B4%E6%96%B0/#more">more >></a>
-        
+        <script>
+          var _hmt = _hmt || [];
+          (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?7d6f06508111c3861f3464c0b8191124";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+          })();
+          </script>  
+          
+        <h1 id="排序合集"><a href="#排序合集" class="headerlink" title="排序合集"></a>排序合集</h1><a id="more"></a>
+<ol>
+<li>排序：找最小的，第二小的，不断往左边扔</li>
+<li>插入排序：从后往前找比自己大的前一个位置插入，每次往前挪一格</li>
+<li>希尔排序：插入排序升级版，每次挪n格</li>
+<li>归并排序：先将总的分成两份</li>
+</ol>
+<h2 id="插入排序："><a href="#插入排序：" class="headerlink" title="插入排序："></a>插入排序：</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=len;i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">array</span>[i]&lt;<span class="built_in">array</span>[i<span class="number">-1</span>])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">array</span>[<span class="number">0</span>] = <span class="built_in">array</span>[i];</span><br><span class="line">        <span class="built_in">array</span>[i] = <span class="built_in">array</span>[i<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">for</span>(j=i<span class="number">-2</span>;<span class="built_in">array</span>[j]&gt;<span class="built_in">array</span>[<span class="number">0</span>];j--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">array</span>[j+<span class="number">1</span>] = <span class="built_in">array</span>[j];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//array[j]&lt;array[0]</span></span><br><span class="line">        <span class="built_in">array</span>[j+<span class="number">1</span>] = <span class="built_in">array</span>[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>先从i=2开始往后找，若array[i]&lt;array[i-1],则将array[i]赋值给哨兵，之后便往后寻找合适位置插入。</p>
+<h2 id="选择排序："><a href="#选择排序：" class="headerlink" title="选择排序："></a>选择排序：</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//寻找第i小的元素，i从0~iArraylen-1</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; iArrayLen; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> iMinIndex = i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; iArrayLen; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">array</span>[iMinIndex] &gt; <span class="built_in">array</span>[j])</span><br><span class="line">            &#123;</span><br><span class="line">                iMinIndex = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//找出最小索引元素后，与第i元素交换</span></span><br><span class="line">        <span class="keyword">if</span>(iMinIndex != i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> iTem = <span class="built_in">array</span>[i];</span><br><span class="line">            <span class="built_in">array</span>[i] = <span class="built_in">array</span>[iMinIndex];</span><br><span class="line">            <span class="built_in">array</span>[iMinIndex] = iTem;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>从第i个开始往后寻找，将i赋值给iMindex，如果array[iMindex]&gt;array[i+1]，将i+1赋值给iMindex，不断往后比较，直到找到最小值的索引，并赋值给iMindex，最后将array[iMindex]赋值给array[i]</p>
+<h2 id="冒泡排序："><a href="#冒泡排序：" class="headerlink" title="冒泡排序："></a>冒泡排序：</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//需要两个计量数，两两进行比较,以及进行交换的变量</span></span><br><span class="line">    <span class="keyword">int</span> i, j, temp;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;len<span class="number">-1</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;len<span class="number">-1</span>;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">array</span>[j] &lt; <span class="built_in">array</span>[j<span class="number">-1</span>])</span><br><span class="line">               &#123;</span><br><span class="line">                   temp = <span class="built_in">array</span>[j];</span><br><span class="line">                    <span class="built_in">array</span>[j] = <span class="built_in">array</span>[j<span class="number">-1</span>];</span><br><span class="line">                    <span class="built_in">array</span>[j<span class="number">-1</span>] = temp;</span><br><span class="line">               &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>l两两进行比较，用两个循环来实现，最简单的排序方法</p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -198,16 +249,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/28/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%A4%A7%E9%9B%86-%E5%90%8E%E7%BB%AD%E6%9B%B4%E6%96%B0/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/28/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%A4%A7%E9%9B%86-%E5%90%8E%E7%BB%AD%E6%9B%B4%E6%96%B0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/14/%E4%B8%89%E5%A4%A7%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">三大框架搭建属于你的博客.md</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -227,157 +337,14 @@
 
 
 
-
-  
-    <article id="post-三大框架搭建个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-
   
   
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/14/%E4%B8%89%E5%A4%A7%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">三大框架搭建属于你的博客.md</a>
-    </h1>
   
 
-        
-        
-<a href="/2019/11/14/%E4%B8%89%E5%A4%A7%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2019-11-14T15:19:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#基于三大框架</p>
-        
-          <a class="article-more-a" href="/2019/11/14/%E4%B8%89%E5%A4%A7%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">博客搭建</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/14/%E4%B8%89%E5%A4%A7%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-no-1-md" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-
-  
-  
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/25/no-1-md/">no.1.md</a>
-    </h1>
   
 
-        
-        
-<a href="/2019/10/25/no-1-md/" class="archive-article-date">
-  	<time datetime="2019-10-25T11:09:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>——很高兴创建了个人博客！！！！</p>
-        
-          <a class="article-more-a" href="/2019/10/25/no-1-md/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/25/no-1-md/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
+
   
 
 
@@ -402,8 +369,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
