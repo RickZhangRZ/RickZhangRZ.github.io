@@ -6,14 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | ZhangRuZhang</title>
+  <title>域名解析详解 | ZhangRuZhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="ZhangRuZhang">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2019&#x2F;index.html">
+  <meta name="description" content="关于阿里云域名解析记录填写详解">
+<meta name="keywords" content="域名解析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="域名解析详解">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;04&#x2F;%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E8%AF%A6%E8%A7%A3&#x2F;index.html">
 <meta property="og:site_name" content="ZhangRuZhang">
+<meta property="og:description" content="关于阿里云域名解析记录填写详解">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="c:%5CUsers%5Cdell%5CDesktop%5CQQ%E6%88%AA%E5%9B%BE20191204131433.jpg">
+<meta property="og:updated_time" content="2019-12-04T05:48:35.622Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:%5CUsers%5Cdell%5CDesktop%5CQQ%E6%88%AA%E5%9B%BE20191204131433.jpg">
   
     <link rel="alternative" href="/atom.xml" title="ZhangRuZhang" type="application/atom+xml">
   
@@ -147,37 +153,100 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-域名解析详解" class="article article-type-post " itemscope itemprop="blogPost">
+
   
   
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/12/04/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E8%AF%A6%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2019-12-04T05:41:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-04</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/04/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E8%AF%A6%E8%A7%A3/">域名解析详解</a>
+    <h1 class="article-title" itemprop="name">
+      域名解析详解
     </h1>
   
 
-        <div class="article-info info-on-right">
+        
+        
+	<!-- 不蒜子统计 -->
+	<span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+<a href="/2019/12/04/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E8%AF%A6%E8%A7%A3/" class="archive-article-date">
+  	<time datetime="2019-12-04T05:41:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script>
+          var _hmt = _hmt || [];
+          (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?7d6f06508111c3861f3464c0b8191124";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+          })();
+          </script>  
           
+        <h1 id="关于阿里云域名解析记录填写详解"><a href="#关于阿里云域名解析记录填写详解" class="headerlink" title="关于阿里云域名解析记录填写详解"></a>关于阿里云域名解析记录填写详解</h1><a id="more"></a>
+
+<p><img src="C:%5CUsers%5Cdell%5CDesktop%5CQQ%E6%88%AA%E5%9B%BE20191204131433.jpg" alt="QQ截图20191204131433"></p>
+<h2 id="记录类型"><a href="#记录类型" class="headerlink" title="记录类型"></a>记录类型</h2><ol>
+<li>A记录：将域名指向一个IPV4地址，需要增加A记录</li>
+<li>CNAME：如果将域名指向一个域名，实现与被指向域名相同的访问效果，需要增加CNAME记录</li>
+<li>MX：建立电子邮箱服务，将指向邮件服务器地址，需要设置MX记录</li>
+<li>NS：域名解析服务器记录，如果要将子域名指定某个域名服务器来解析，需要设置NS记录</li>
+<li>TXT记录：可任意填写（可为空），通常用做SPF记录（反垃圾邮件）使用</li>
+<li>AAAA记录：将主机名（或域名）指向一个IPv6地址（例如：ff03:0:0:0:0:0:0:c1），需要添加AAAA记录</li>
+<li>SRV记录：记录了哪台计算机提供了哪个服务。格式为：服务的名字.协议的类型（例如：_example-server._tcp）</li>
+<li>显性URL：将域名指向一个http（s)协议地址，访问域名时，自动跳转至目标地址（例如：将<a href="http://www.net.cn显性转发到www.hichina.com后，访问www.net.cn时，地址栏显示的地址为：www.hichina.com）。" target="_blank" rel="noopener">www.net.cn显性转发到www.hichina.com后，访问www.net.cn时，地址栏显示的地址为：www.hichina.com）。</a></li>
+<li>隐性URL：与显性URL类似，但隐性转发会隐藏真实的目标地址（例如：将<a href="http://www.net.cn隐性转发到www.hichina.com后，访问www.net.cn时，地址栏显示的地址仍然为：www.net.cn）。" target="_blank" rel="noopener">www.net.cn隐性转发到www.hichina.com后，访问www.net.cn时，地址栏显示的地址仍然为：www.net.cn）。</a></li>
+</ol>
+<p>例如：A记录常见用于服务器绑定域名</p>
+<p>​           CNAME记录常见于指向github上搭建的服务器</p>
+<h2 id="主机记录"><a href="#主机记录" class="headerlink" title="主机记录"></a>主机记录</h2><p>常见用法有：</p>
+<p><strong>www：</strong>解析后的域名为<a href="http://www.aliyun.com。" target="_blank" rel="noopener">www.aliyun.com。</a></p>
+<p><strong>@：</strong>直接解析主域名 aliyun.com。</p>
+<p><strong>*：</strong>泛解析，匹配其他所有域名 *.aliyun.com。</p>
+<p><strong>mail：</strong>将域名解析为mail.aliyun.com，通常用于解析邮箱服务器。</p>
+<p><strong>二级域名：</strong>如：abc.aliyun.com，填写abc。</p>
+<p><strong>手机网站：</strong>如：m.aliyun.com，填写m。</p>
+<p><strong>显性URL：</strong>不支持泛解析（泛解析：将所有子域名解析到同一地址）</p>
+<p>说到最后发现阿里云的帮助文档比我讲的还详细，哈哈哈，尴尬的一篇博文</p>
+<p>直击阿里云帮助文档：<a href="https://help.aliyun.com/knowledge_detail/29725.html" target="_blank" rel="noopener">https://help.aliyun.com/knowledge_detail/29725.html</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -189,125 +258,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/04/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E8%AF%A6%E8%A7%A3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/11/28/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%A4%A7%E9%9B%86-%E5%90%8E%E7%BB%AD%E6%9B%B4%E6%96%B0/" class="archive-article-date">
-  	<time datetime="2019-11-28T13:04:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/28/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%A4%A7%E9%9B%86-%E5%90%8E%E7%BB%AD%E6%9B%B4%E6%96%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">排序算法大集(后续更新)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/28/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%A4%A7%E9%9B%86-%E5%90%8E%E7%BB%AD%E6%9B%B4%E6%96%B0/">排序算法大集(后续更新)</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">data structures and algorithms</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/11/14/%E4%B8%89%E5%A4%A7%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2019-11-14T15:19:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/14/%E4%B8%89%E5%A4%A7%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">三大框架搭建属于你的博客.md</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">博客搭建</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/10/25/no-1-md/" class="archive-article-date">
-  	<time datetime="2019-10-25T11:09:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/25/no-1-md/">no.1.md</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -332,8 +382,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
