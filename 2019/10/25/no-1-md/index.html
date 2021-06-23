@@ -17,16 +17,16 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>no.1.md | Hexo</title>
+  <title>not.1.md | Hexo</title>
   <meta name="description" content="——很高兴创建了个人博客！！！！hhhhhhhh">
 <meta property="og:type" content="article">
-<meta property="og:title" content="no.1.md">
+<meta property="og:title" content="not.1.md">
 <meta property="og:url" content="http://yoursite.com/2019/10/25/no-1-md/index.html">
 <meta property="og:site_name" content="ZhangRuZhang">
 <meta property="og:description" content="——很高兴创建了个人博客！！！！hhhhhhhh">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-10-25T11:09:22.000Z">
-<meta property="article:modified_time" content="2021-06-23T05:50:52.857Z">
+<meta property="article:modified_time" content="2021-06-23T06:15:49.388Z">
 <meta property="article:author" content="Zhang Ru Zhang">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
@@ -58,7 +58,7 @@
           <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
         </a>
         <h2 id="name" class="hidden-xs hidden-sm">Rickzhang</h2>
-        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Never put off what you can do today until tomorrow.</h3>
         <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> dongguang, China</small>
       </div>
       
@@ -360,7 +360,7 @@ _st('install','true','2.0.0');
         
   
     <h1 class="article-title" itemprop="name">
-      no.1.md
+      not.1.md
     </h1>
   
 
@@ -376,11 +376,13 @@ _st('install','true','2.0.0');
         
 
         
-
 	<span class="article-read hidden-xs">
-    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
-    	<span id="/2019/10/25/no-1-md/" class="leancloud_visitors"  data-flag-title="no.1.md">0</span>
-    </span>
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/10/25/no-1-md/#comments" class="article-comment-link">评论</a></span>
         
@@ -407,7 +409,7 @@ _st('install','true','2.0.0');
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://yoursite.com/2019/10/25/no-1-md/" title="no.1.md" target="_blank" rel="external">http://yoursite.com/2019/10/25/no-1-md/</a>
+      <a href="http://yoursite.com/2019/10/25/no-1-md/" title="not.1.md" target="_blank" rel="external">http://yoursite.com/2019/10/25/no-1-md/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -426,7 +428,7 @@ _st('install','true','2.0.0');
         </a>
       </div>
       <div class="media-body">
-        <h3 class="media-heading"><a href="https://github.com/cofess" target="_blank"><span class="text-dark">Rickzhang</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <h3 class="media-heading"><a href="https://github.com/cofess" target="_blank"><span class="text-dark">Rickzhang</span><small class="ml-1x">Never put off what you can do today until tomorrow.</small></a></h3>
         <div>就读于普通本科的即将踏入社会的打工人</div>
       </div>
     </figure>
@@ -563,97 +565,9 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
    
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
-<!-- custom analytics part create by xiamo -->
-<script defer src="https://cdn1.lncld.net/static/js/av-min-1.2.1.js"></script>
-<script defer>
-AV.init({
-  appId: '',
-  appKey: ''
-});
-
-function showTime(Counter) {
-	var query = new AV.Query(Counter);
-		var visitors= $('.leancloud_visitors');
-		query.greaterThanOrEqualTo("time", 0);		
-		query.find({
-			success: function(results) {
-				if (results.length == 0) {				
-					return;
-				}
-				var data = results;
-				visitors.each(function(){
-					var url = $(this).attr('id').trim();					
-					for (var i = 0; i < data.length; i++) {
-						var object = data[i];
-						var content = object.get('time');
-						var _url = object.get('url')
-						if(url == _url){
-							$(this).text(content);
-						}
-					}
-				})
-				
-			},
-			error: function(object, error) {
-				console.log("Error: " + error.code + " " + error.message);
-			}
-		});
-}
-
-function addCount(Counter) {
-	var Counter = AV.Object.extend("Counter");
-	url = $(".leancloud_visitors").attr('id').trim();
-	title = $(".leancloud_visitors").attr('data-flag-title').trim();
-	var query = new AV.Query(Counter);
-	query.equalTo("url", url);
-	query.find({
-		success: function(results) {
-			if (results.length > 0) {
-				var counter = results[0];
-				counter.fetchWhenSave(true);
-				counter.increment("time");
-				counter.save(null, {
-					success: function(counter) {
-						var content = counter.get('time');
-						$(document.getElementById(url)).text(content);
-					},
-					error: function(counter, error) {
-						console.log('Failed to save Visitor num, with error message: ' + error.message);
-					}
-				});
-			} else {
-				var newcounter = new Counter();
-				newcounter.set("title", title);
-				newcounter.set("url", url);
-				newcounter.set("time", 1);
-				newcounter.save(null, {
-					success: function(newcounter) {
-					    console.log("newcounter.get('time')="+newcounter.get('time'));
-						var content = newcounter.get('time');
-						$(document.getElementById(url)).text(content);
-					},
-					error: function(newcounter, error) {
-						console.log('Failed to create');
-					}
-				});
-			}
-		},
-		error: function(error) {
-			console.log('Error:' + error.code + " " + error.message);
-		}
-	});
-}
-$(function() {
-	var Counter = AV.Object.extend("Counter");
-	if ($('.leancloud_visitors').length == 1) {
-		addCount(Counter);
-	} else {
-		showTime(Counter);
-	}
-}); 
-</script>
 
 
 
