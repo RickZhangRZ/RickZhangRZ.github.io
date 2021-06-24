@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-31T12:18:55.839Z</updated>
+  <updated>2021-06-23T09:05:18.001Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mysql安装篇</title>
+    <link href="http://yoursite.com/2021/06/23/mysql%E5%AE%89%E8%A3%85%E7%AF%87/"/>
+    <id>http://yoursite.com/2021/06/23/mysql%E5%AE%89%E8%A3%85%E7%AF%87/</id>
+    <published>2021-06-23T09:00:06.000Z</published>
+    <updated>2021-06-23T09:05:18.001Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>下载mysql</li><li>进行安装</li><li>配置</li><li>食用</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;下载mysql&lt;/li&gt;
+&lt;li&gt;进行安装&lt;/li&gt;
+&lt;li&gt;配置&lt;/li&gt;
+&lt;li&gt;食用&lt;/li&gt;
+&lt;/ol&gt;
+</summary>
+      
+    
+    
+    
+    
+    <category term="软件安装" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
+    
+  </entry>
   
   <entry>
     <title>常见API(上)</title>
