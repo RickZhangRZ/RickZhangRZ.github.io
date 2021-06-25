@@ -3,11 +3,11 @@
   <title>ZhangRuZhang</title>
   
   
-  <link href="http://yoursite.com/atom.xml" rel="self"/>
+  <link href="www.rickzhang.cn/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
-  <updated>2021-06-24T15:54:07.090Z</updated>
-  <id>http://yoursite.com/</id>
+  <link href="www.rickzhang.cn/"/>
+  <updated>2021-06-25T01:23:24.557Z</updated>
+  <id>www.rickzhang.cn/</id>
   
   <author>
     <name>Zhang Ru Zhang</name>
@@ -17,9 +17,22 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2021.06.25|933.最近的请求次数</title>
+    <link href="www.rickzhang.cn/2021/06/25/2021-06-25-933-%E6%9C%80%E8%BF%91%E7%9A%84%E8%AF%B7%E6%B1%82%E6%AC%A1%E6%95%B0/"/>
+    <id>www.rickzhang.cn/2021/06/25/2021-06-25-933-%E6%9C%80%E8%BF%91%E7%9A%84%E8%AF%B7%E6%B1%82%E6%AC%A1%E6%95%B0/</id>
+    <published>2021-06-25T01:23:24.000Z</published>
+    <updated>2021-06-25T01:23:24.557Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>小型项目部署篇</title>
-    <link href="http://yoursite.com/2021/06/24/%E5%B0%8F%E5%9E%8B%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E7%AF%87/"/>
-    <id>http://yoursite.com/2021/06/24/%E5%B0%8F%E5%9E%8B%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E7%AF%87/</id>
+    <link href="www.rickzhang.cn/2021/06/24/%E5%B0%8F%E5%9E%8B%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E7%AF%87/"/>
+    <id>www.rickzhang.cn/2021/06/24/%E5%B0%8F%E5%9E%8B%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E7%AF%87/</id>
     <published>2021-06-24T14:56:19.000Z</published>
     <updated>2021-06-24T15:54:07.090Z</updated>
     
@@ -36,16 +49,16 @@
     
     
     
-    <category term="项目部署" scheme="http://yoursite.com/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/"/>
+    <category term="项目部署" scheme="www.rickzhang.cn/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/"/>
     
   </entry>
   
   <entry>
     <title>mysql安装篇</title>
-    <link href="http://yoursite.com/2021/06/23/mysql%E5%AE%89%E8%A3%85%E7%AF%87/"/>
-    <id>http://yoursite.com/2021/06/23/mysql%E5%AE%89%E8%A3%85%E7%AF%87/</id>
+    <link href="www.rickzhang.cn/2021/06/23/mysql%E5%AE%89%E8%A3%85%E7%AF%87/"/>
+    <id>www.rickzhang.cn/2021/06/23/mysql%E5%AE%89%E8%A3%85%E7%AF%87/</id>
     <published>2021-06-23T09:00:06.000Z</published>
-    <updated>2021-06-23T09:05:18.001Z</updated>
+    <updated>2021-06-23T09:08:31.300Z</updated>
     
     <content type="html"><![CDATA[<ol><li>下载mysql</li><li>进行安装</li><li>配置</li><li>食用</li></ol>]]></content>
     
@@ -64,14 +77,14 @@
     
     
     
-    <category term="软件安装" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
+    <category term="软件安装" scheme="www.rickzhang.cn/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
     
   </entry>
   
   <entry>
     <title>常见API(上)</title>
-    <link href="http://yoursite.com/2020/05/31/%E5%B8%B8%E8%A7%81API-%E4%B8%8A/"/>
-    <id>http://yoursite.com/2020/05/31/%E5%B8%B8%E8%A7%81API-%E4%B8%8A/</id>
+    <link href="www.rickzhang.cn/2020/05/31/%E5%B8%B8%E8%A7%81API-%E4%B8%8A/"/>
+    <id>www.rickzhang.cn/2020/05/31/%E5%B8%B8%E8%A7%81API-%E4%B8%8A/</id>
     <published>2020-05-31T12:10:38.000Z</published>
     <updated>2020-05-31T12:18:55.839Z</updated>
     
@@ -87,8 +100,8 @@
   
   <entry>
     <title>二叉树</title>
-    <link href="http://yoursite.com/2020/05/05/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
-    <id>http://yoursite.com/2020/05/05/%E4%BA%8C%E5%8F%89%E6%A0%91/</id>
+    <link href="www.rickzhang.cn/2020/05/05/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    <id>www.rickzhang.cn/2020/05/05/%E4%BA%8C%E5%8F%89%E6%A0%91/</id>
     <published>2020-05-05T12:59:34.000Z</published>
     <updated>2020-05-05T13:10:27.992Z</updated>
     
@@ -100,14 +113,14 @@
     
     
     
-    <category term="data structures" scheme="http://yoursite.com/tags/data-structures/"/>
+    <category term="data structures" scheme="www.rickzhang.cn/tags/data-structures/"/>
     
   </entry>
   
   <entry>
     <title>java之旅01</title>
-    <link href="http://yoursite.com/2020/02/26/java%E4%B9%8B%E6%97%8501/"/>
-    <id>http://yoursite.com/2020/02/26/java%E4%B9%8B%E6%97%8501/</id>
+    <link href="www.rickzhang.cn/2020/02/26/java%E4%B9%8B%E6%97%8501/"/>
+    <id>www.rickzhang.cn/2020/02/26/java%E4%B9%8B%E6%97%8501/</id>
     <published>2020-02-26T13:36:39.000Z</published>
     <updated>2020-02-26T13:42:42.515Z</updated>
     
@@ -119,14 +132,14 @@
     
     
     
-    <category term="java学习" scheme="http://yoursite.com/tags/java%E5%AD%A6%E4%B9%A0/"/>
+    <category term="java学习" scheme="www.rickzhang.cn/tags/java%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>虚拟机网络模式</title>
-    <link href="http://yoursite.com/2019/12/27/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://yoursite.com/2019/12/27/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F/</id>
+    <link href="www.rickzhang.cn/2019/12/27/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F/"/>
+    <id>www.rickzhang.cn/2019/12/27/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F/</id>
     <published>2019-12-27T12:41:56.000Z</published>
     <updated>2019-12-27T12:49:16.403Z</updated>
     
@@ -138,14 +151,14 @@
     
     
     
-    <category term="虚拟机" scheme="http://yoursite.com/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+    <category term="虚拟机" scheme="www.rickzhang.cn/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>域名解析详解</title>
-    <link href="http://yoursite.com/2019/12/04/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E8%AF%A6%E8%A7%A3/"/>
-    <id>http://yoursite.com/2019/12/04/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E8%AF%A6%E8%A7%A3/</id>
+    <link href="www.rickzhang.cn/2019/12/04/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E8%AF%A6%E8%A7%A3/"/>
+    <id>www.rickzhang.cn/2019/12/04/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E8%AF%A6%E8%A7%A3/</id>
     <published>2019-12-04T05:41:36.000Z</published>
     <updated>2019-12-04T05:48:35.622Z</updated>
     
@@ -157,14 +170,14 @@
     
     
     
-    <category term="域名解析" scheme="http://yoursite.com/tags/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90/"/>
+    <category term="域名解析" scheme="www.rickzhang.cn/tags/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90/"/>
     
   </entry>
   
   <entry>
     <title>排序算法大集(后续更新)</title>
-    <link href="http://yoursite.com/2019/11/28/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%A4%A7%E9%9B%86-%E5%90%8E%E7%BB%AD%E6%9B%B4%E6%96%B0/"/>
-    <id>http://yoursite.com/2019/11/28/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%A4%A7%E9%9B%86-%E5%90%8E%E7%BB%AD%E6%9B%B4%E6%96%B0/</id>
+    <link href="www.rickzhang.cn/2019/11/28/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%A4%A7%E9%9B%86-%E5%90%8E%E7%BB%AD%E6%9B%B4%E6%96%B0/"/>
+    <id>www.rickzhang.cn/2019/11/28/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%A4%A7%E9%9B%86-%E5%90%8E%E7%BB%AD%E6%9B%B4%E6%96%B0/</id>
     <published>2019-11-28T13:04:20.000Z</published>
     <updated>2019-11-29T05:25:02.215Z</updated>
     
@@ -176,14 +189,14 @@
     
     
     
-    <category term="data structures and algorithms" scheme="http://yoursite.com/tags/data-structures-and-algorithms/"/>
+    <category term="data structures and algorithms" scheme="www.rickzhang.cn/tags/data-structures-and-algorithms/"/>
     
   </entry>
   
   <entry>
     <title>三大框架搭建属于你的博客.md</title>
-    <link href="http://yoursite.com/2019/11/14/%E4%B8%89%E5%A4%A7%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://yoursite.com/2019/11/14/%E4%B8%89%E5%A4%A7%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</id>
+    <link href="www.rickzhang.cn/2019/11/14/%E4%B8%89%E5%A4%A7%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>www.rickzhang.cn/2019/11/14/%E4%B8%89%E5%A4%A7%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</id>
     <published>2019-11-14T15:19:33.000Z</published>
     <updated>2020-05-31T12:06:56.151Z</updated>
     
@@ -195,14 +208,14 @@
     
     
     
-    <category term="博客搭建" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    <category term="博客搭建" scheme="www.rickzhang.cn/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
   </entry>
   
   <entry>
     <title>not.1.md</title>
-    <link href="http://yoursite.com/2019/10/25/no-1-md/"/>
-    <id>http://yoursite.com/2019/10/25/no-1-md/</id>
+    <link href="www.rickzhang.cn/2019/10/25/no-1-md/"/>
+    <id>www.rickzhang.cn/2019/10/25/no-1-md/</id>
     <published>2019-10-25T11:09:22.000Z</published>
     <updated>2021-06-23T06:15:49.388Z</updated>
     
