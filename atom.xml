@@ -6,7 +6,7 @@
   <link href="www.rickzhang.cn/atom.xml" rel="self"/>
   
   <link href="www.rickzhang.cn/"/>
-  <updated>2021-06-26T02:47:38.211Z</updated>
+  <updated>2021-06-26T02:49:53.662Z</updated>
   <id>www.rickzhang.cn/</id>
   
   <author>
@@ -17,18 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2021-06-26-02-两数相加</title>
+    <link href="www.rickzhang.cn/2021/06/26/2021-06-26-02-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/"/>
+    <id>www.rickzhang.cn/2021/06/26/2021-06-26-02-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/</id>
+    <published>2021-06-26T02:49:53.000Z</published>
+    <updated>2021-06-26T02:49:53.662Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>2021.06.25|933.最近的请求次数</title>
     <link href="www.rickzhang.cn/2021/06/25/2021-06-25-933-%E6%9C%80%E8%BF%91%E7%9A%84%E8%AF%B7%E6%B1%82%E6%AC%A1%E6%95%B0/"/>
     <id>www.rickzhang.cn/2021/06/25/2021-06-25-933-%E6%9C%80%E8%BF%91%E7%9A%84%E8%AF%B7%E6%B1%82%E6%AC%A1%E6%95%B0/</id>
     <published>2021-06-25T01:23:24.000Z</published>
-    <updated>2021-06-26T02:47:38.211Z</updated>
+    <updated>2021-06-26T02:54:00.530Z</updated>
     
-    <content type="html"><![CDATA[<p>题目：最近的请求次数：在 RecentCounter 类中有一个方法：ping(int t)，t 代表某个时<br>间（毫秒），返回从 3000 毫秒前（时间范围：[t - 3000, t] ）到现在的 ping 数<br>• 保证每次对 ping 的调用都使用比之前更大的 t 值，1 &lt;= t &lt;= 10^9<br>• 每个测试用例会使用严格递增的 t 值来调用ping，最多调用 10000 次 ping</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：inputs = [[<span class="number">1</span>],[<span class="number">100</span>],[<span class="number">3001</span>],[<span class="number">3002</span>]]</span><br><span class="line">输出：[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>]</span><br></pre></td></tr></table></figure><p>该题目可以这样理解，最终是要求请求的次数，每次一个请求过来，如果符合([t-3000],t),则记录次数，不符合则不记录，则可以用队列来实现</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RecentCounter</span> </span>&#123;</span><br><span class="line">    Queue&lt;Integer&gt; q; <span class="comment">//声明一个队列</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RecentCounter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        q = <span class="keyword">new</span> LinkedList();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">ping</span><span class="params">(<span class="keyword">int</span> t)</span> </span>&#123;</span><br><span class="line">        q.add(t); <span class="comment">//将请求添加到队列</span></span><br><span class="line">        <span class="comment">//对请求进行判断</span></span><br><span class="line">        <span class="keyword">while</span> (q.peek() &lt; t - <span class="number">3000</span>&gt;) &#123;</span><br><span class="line">            q.poll(); <span class="comment">//不符合则出列</span></span><br><span class="line">        </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> q.size(); <span class="comment">//返回总的次数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>复杂度分析：</p><ul><li>时间复杂度：O(1) //每次添加删除都是O(1)</li><li>空间复杂度: O(1) //最多保留3001个</li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="1.题目描述"></a>1.题目描述</h2><p>最近的请求次数：在 RecentCounter 类中有一个方法：ping(int t)，t 代表某个时<br>间（毫秒），返回从 3000 毫秒前（时间范围：[t - 3000, t] ）到现在的 ping 数<br>• 保证每次对 ping 的调用都使用比之前更大的 t 值，1 &lt;= t &lt;= 10^9<br>• 每个测试用例会使用严格递增的 t 值来调用ping，最多调用 10000 次 ping</p><h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a><strong>实例</strong></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：inputs = [[<span class="number">1</span>],[<span class="number">100</span>],[<span class="number">3001</span>],[<span class="number">3002</span>]]</span><br><span class="line">输出：[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>]</span><br></pre></td></tr></table></figure><h2 id="2-解题思路"><a href="#2-解题思路" class="headerlink" title="2.解题思路"></a>2.解题思路</h2><p>该题目可以这样理解，最终是要求请求的次数，每次一个请求过来，如果符合([t-3000],t),则记录次数，不符合则不记录，则可以用队列来实现</p><h2 id="3-代码实现"><a href="#3-代码实现" class="headerlink" title="3. 代码实现"></a>3. 代码实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RecentCounter</span> </span>&#123;</span><br><span class="line">    Queue&lt;Integer&gt; q; <span class="comment">//声明一个队列</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RecentCounter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        q = <span class="keyword">new</span> LinkedList();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">ping</span><span class="params">(<span class="keyword">int</span> t)</span> </span>&#123;</span><br><span class="line">        q.add(t); <span class="comment">//将请求添加到队列</span></span><br><span class="line">        <span class="comment">//对请求进行判断</span></span><br><span class="line">        <span class="keyword">while</span> (q.peek() &lt; t - <span class="number">3000</span>&gt;) &#123;</span><br><span class="line">            q.poll(); <span class="comment">//不符合则出列</span></span><br><span class="line">        </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> q.size(); <span class="comment">//返回总的次数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="4-复杂度分析："><a href="#4-复杂度分析：" class="headerlink" title="4. 复杂度分析："></a>4. 复杂度分析：</h2><ul><li>时间复杂度：O(1) //每次添加删除都是O(1)</li><li>空间复杂度: O(1) //最多保留3001个</li></ul>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;题目：最近的请求次数：在 RecentCounter 类中有一个方法：ping(int t)，t 代表某个时&lt;br&gt;间（毫秒），返回从 3000 毫秒前（时间范围：[t - 3000, t] ）到现在的 ping 数&lt;br&gt;• 保证每次对 ping 的调用都使用比之前更大的</summary>
+    <summary type="html">&lt;h2 id=&quot;1-题目描述&quot;&gt;&lt;a href=&quot;#1-题目描述&quot; class=&quot;headerlink&quot; title=&quot;1.题目描述&quot;&gt;&lt;/a&gt;1.题目描述&lt;/h2&gt;&lt;p&gt;最近的请求次数：在 RecentCounter 类中有一个方法：ping(int t)，t 代表某个时&lt;br</summary>
       
     
     
