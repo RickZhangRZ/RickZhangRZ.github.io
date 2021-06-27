@@ -6,7 +6,7 @@
   <link href="www.rickzhang.cn/atom.xml" rel="self"/>
   
   <link href="www.rickzhang.cn/"/>
-  <updated>2021-06-26T05:26:26.217Z</updated>
+  <updated>2021-06-27T14:09:30.331Z</updated>
   <id>www.rickzhang.cn/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何解决跨域问题</title>
+    <link href="www.rickzhang.cn/2021/06/27/%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/"/>
+    <id>www.rickzhang.cn/2021/06/27/%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</id>
+    <published>2021-06-27T13:54:16.000Z</published>
+    <updated>2021-06-27T14:09:30.331Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="出现跨域的标识"><a href="#出现跨域的标识" class="headerlink" title="出现跨域的标识"></a>出现跨域的标识</h2><p>当我们在前端项目中，向后端发送请求获取数据的时候，会出现：请求的资源上没有’ Access-Control-Allow-Origin’标头（跨域请求失败）</p><h2 id="何为跨域"><a href="#何为跨域" class="headerlink" title="何为跨域"></a>何为跨域</h2><p>跨域是指通过JS在不同的域之间进行数据传输或通信，比如用ajax向一个不同的域请求数据，只要协议、域名、端口有任何一个不同，都被当作是不同的域,浏览器就不允许跨域请求。<br>常见的跨域：<br><img src="http://qval5nqsx.hn-bkt.clouddn.com/image.png" alt="images"></p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>跨域的允许主要由服务器端控制。服务器端通过在响应的 header 中设置  Access-Control-Allow-Origin 及相关一系列参数，提供跨域访问的允许策略，设置响应头中的参数来允许跨域域请求:</p><ol><li>Access-Control-Allow-Credentials</li><li>Access-Control-Allow-Origin 标识允许跨域的请求有哪些<br>例如在java开发中常常这样来解决：</li><li>在POM文件中引入依赖和在web.xml中配置跨域filter<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 导入POM文件 --&gt;</span><br><span class="line">&lt;!-- 解决跨域问题所需依赖 --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;com.thetransactioncompany&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;cors-filter&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;2.5&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;!-- 在web.xml中配置跨域filter --&gt;</span><br><span class="line">&lt;!--配置跨域过滤器--&gt;</span><br><span class="line">  &lt;filter&gt;</span><br><span class="line">    &lt;filter-name&gt;corsFilter&lt;/filter-name&gt;</span><br><span class="line">    &lt;filter-<span class="class"><span class="keyword">class</span>&gt;<span class="title">com</span>.<span class="title">thetransactioncompany</span>.<span class="title">cors</span>.<span class="title">CORSFilter</span>&lt;/<span class="title">filter</span>-<span class="title">class</span>&gt;</span></span><br><span class="line"><span class="class">  &lt;/<span class="title">filter</span>&gt;</span></span><br><span class="line"><span class="class">  &lt;<span class="title">filter</span>-<span class="title">mapping</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;<span class="title">filter</span>-<span class="title">name</span>&gt;<span class="title">corsFilter</span>&lt;/<span class="title">filter</span>-<span class="title">name</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;<span class="title">url</span>-<span class="title">pattern</span>&gt;/*&lt;/<span class="title">url</span>-<span class="title">pattern</span>&gt;</span></span><br><span class="line"><span class="class">  &lt;/<span class="title">filter</span>-<span class="title">mapping</span>&gt;</span></span><br></pre></td></tr></table></figure></li><li>直接导入java类来进行解决<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.cors.CorsConfiguration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.config.annotation.CorsRegistry;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.config.annotation.WebMvcConfigurer;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CorsConfig</span> <span class="keyword">implements</span> <span class="title">WebMvcConfigurer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addCorsMappings</span><span class="params">(CorsRegistry registry)</span> </span>&#123;</span><br><span class="line">        registry.addMapping(<span class="string">"/**"</span>)</span><br><span class="line">                .allowedOriginPatterns(<span class="string">"*"</span>)</span><br><span class="line">                .allowedHeaders(CorsConfiguration.ALL)</span><br><span class="line">                .allowedMethods(CorsConfiguration.ALL)</span><br><span class="line">                .allowCredentials(<span class="keyword">true</span>)</span><br><span class="line">                .maxAge(<span class="number">3600</span>); <span class="comment">// 1小时内不需要再预检（发OPTIONS请求）</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;出现跨域的标识&quot;&gt;&lt;a href=&quot;#出现跨域的标识&quot; class=&quot;headerlink&quot; title=&quot;出现跨域的标识&quot;&gt;&lt;/a&gt;出现跨域的标识&lt;/h2&gt;&lt;p&gt;当我们在前端项目中，向后端发送请求获取数据的时候，会出现：请求的资源上没有’ Access-Cont</summary>
+      
+    
+    
+    
+    
+    <category term="前后端交互" scheme="www.rickzhang.cn/tags/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2021-06-27-141-环形链表</title>
+    <link href="www.rickzhang.cn/2021/06/27/2021-06-27-141-%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/"/>
+    <id>www.rickzhang.cn/2021/06/27/2021-06-27-141-%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/</id>
+    <published>2021-06-27T13:42:07.000Z</published>
+    <updated>2021-06-27T13:42:07.893Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>2021-06-26-02-两数相加</title>
