@@ -6,7 +6,7 @@
   <link href="www.rickzhang.cn/atom.xml" rel="self"/>
   
   <link href="www.rickzhang.cn/"/>
-  <updated>2021-06-27T14:12:22.458Z</updated>
+  <updated>2021-07-02T10:22:16.734Z</updated>
   <id>www.rickzhang.cn/</id>
   
   <author>
@@ -15,6 +15,57 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从26.删除有序数组中的重复项谈到双指针</title>
+    <link href="www.rickzhang.cn/2021/07/02/%E4%BB%8E26-%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9%E8%B0%88%E5%88%B0%E5%8F%8C%E6%8C%87%E9%92%88/"/>
+    <id>www.rickzhang.cn/2021/07/02/%E4%BB%8E26-%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9%E8%B0%88%E5%88%B0%E5%8F%8C%E6%8C%87%E9%92%88/</id>
+    <published>2021-07-02T09:39:50.000Z</published>
+    <updated>2021-07-02T10:22:16.734Z</updated>
+    
+    <content type="html"><![CDATA[<p>老规矩，先上题目</p><h2 id="1-题目"><a href="#1-题目" class="headerlink" title="1. 题目"></a>1. 题目</h2><p>给你一个有序数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。</p><p>不要使用额外的数组空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。</p><p><strong>示例1</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">给定数组 nums = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line">函数应该返回新的长度 <span class="number">2</span>, 并且原数组 nums 的前两个元素被修改为 <span class="number">1</span>, <span class="number">2</span></span><br><span class="line">你不需要考虑数组中超出新长度后面的元素。</span><br></pre></td></tr></table></figure><p><strong>示例2</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">给定数组 nums = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line">函数应该返回新的长度 <span class="number">5</span>, 并且原数组 nums 的前五个元素被修改为 <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span></span><br><span class="line">你不需要考虑数组中超出新长度后面的元素。</span><br></pre></td></tr></table></figure><h2 id="2-解题思路"><a href="#2-解题思路" class="headerlink" title="2. 解题思路"></a>2. 解题思路</h2><ul><li>暴力解法：遍历数组，依次比较相邻的元素(i和i+1),如果两者不相同则向后遍历，i++;相同则后面的所有元素前移一位；每遇到重复的元素，数组长度缩减1</li><li>双指针解法：定义两个指针分别指向目标位和待移动元素位，可定义初始目标位为0，待移动元素位为1，比较两个指针对应的数据，相等则目标位不变，待移动位加1；不相等则目标位加1，待移动元素复制到目标位，待移动位加1<h2 id="3-代码实现"><a href="#3-代码实现" class="headerlink" title="3. 代码实现"></a>3. 代码实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//暴力解法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> length = nums.length; <span class="comment">//数组长度</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length - <span class="number">1</span>;) &#123;</span><br><span class="line">        <span class="comment">//依次比较相邻的元素</span></span><br><span class="line">        <span class="keyword">if</span> (nums[i] != nums[i+<span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="comment">//不同则往后遍历</span></span><br><span class="line">            i++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//如果相同，则后面所有元素往前移动一位</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; length - <span class="number">1</span> ; j++) &#123;</span><br><span class="line">                nums[j] = nums[j+<span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//每次遇到重复元素，数组长度缩减1</span></span><br><span class="line">            length--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>执行结果：通过</li></ul><p>执行用时：435 ms, 在所有 Java 提交中击败了5.03%的用户</p><p>内存消耗：39.3 MB, 在所有 Java 提交中击败了99.50%的用户</p><p><strong>复杂度分析</strong></p><p>时间复杂度:O(n2)<br>空间复杂度:O(1)</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//双指针解法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//定义两个指针</span></span><br><span class="line">    <span class="keyword">int</span> target = <span class="number">0</span>; <span class="comment">//目标位指针</span></span><br><span class="line">    <span class="comment">//i待移动位指针</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        <span class="comment">//如果不相等，则目标位加1，但是如果目标位跟移动位相等了，则跳过赋值操作</span></span><br><span class="line">        <span class="keyword">if</span> (nums[target] != nums[i]) &#123;</span><br><span class="line">            <span class="comment">//target++;</span></span><br><span class="line">            <span class="keyword">if</span> (++target != i) &#123;</span><br><span class="line">                nums[target] = nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> target + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>执行结果：<br>通过</p><p>执行用时：1 ms, 在所有 Java 提交中击败了83.23%的用户</p><p>内存消耗：39.9 MB, 在所有 Java 提交中击败了88.46%的用户</p><p><strong>复杂度分析</strong></p><p>时间复杂度:O(n)</p><p>空间复杂度:O(1)</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在本道题主要使用了双指针，那为什么会使用到双指针呢？就是当我们需要两个数据，并且两者是按照一定的规律同步变化时，我们就可以选择双指针，相对于暴力解法，少了移动元素时所需要的时间复杂度。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;老规矩，先上题目&lt;/p&gt;
+&lt;h2 id=&quot;1-题目&quot;&gt;&lt;a href=&quot;#1-题目&quot; class=&quot;headerlink&quot; title=&quot;1. 题目&quot;&gt;&lt;/a&gt;1. 题目&lt;/h2&gt;&lt;p&gt;给你一个有序数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，</summary>
+      
+    
+    
+    
+    
+    <category term="Leetcode" scheme="www.rickzhang.cn/tags/Leetcode/"/>
+    
+    <category term="双指针" scheme="www.rickzhang.cn/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java集合总结</title>
+    <link href="www.rickzhang.cn/2021/06/29/java%E9%9B%86%E5%90%88%E6%80%BB%E7%BB%93/"/>
+    <id>www.rickzhang.cn/2021/06/29/java%E9%9B%86%E5%90%88%E6%80%BB%E7%BB%93/</id>
+    <published>2021-06-29T01:58:24.000Z</published>
+    <updated>2021-06-29T01:58:24.199Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>谈到环，你应该想到啥</title>
+    <link href="www.rickzhang.cn/2021/06/27/%E8%B0%88%E5%88%B0%E7%8E%AF%EF%BC%8C%E4%BD%A0%E5%BA%94%E8%AF%A5%E6%83%B3%E5%88%B0%E5%95%A5/"/>
+    <id>www.rickzhang.cn/2021/06/27/%E8%B0%88%E5%88%B0%E7%8E%AF%EF%BC%8C%E4%BD%A0%E5%BA%94%E8%AF%A5%E6%83%B3%E5%88%B0%E5%95%A5/</id>
+    <published>2021-06-27T15:42:33.000Z</published>
+    <updated>2021-06-27T15:42:33.626Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>如何解决跨域问题</title>

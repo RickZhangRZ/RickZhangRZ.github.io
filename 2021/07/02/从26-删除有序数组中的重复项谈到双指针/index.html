@@ -17,23 +17,22 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>域名解析详解 | Hexo</title>
-  <meta name="description" content="关于阿里云域名解析记录填写详解">
+  <title>从26.删除有序数组中的重复项谈到双指针 | Hexo</title>
+  <meta name="description" content="老规矩，先上题目 1. 题目给你一个有序数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。 不要使用额外的数组空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。 示例1 123给定数组 nums &#x3D; [1, 1, 2];函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2你不需要考虑数组中超出">
 <meta property="og:type" content="article">
-<meta property="og:title" content="域名解析详解">
-<meta property="og:url" content="www.rickzhang.cn/2019/12/04/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:title" content="从26.删除有序数组中的重复项谈到双指针">
+<meta property="og:url" content="www.rickzhang.cn/2021/07/02/%E4%BB%8E26-%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9%E8%B0%88%E5%88%B0%E5%8F%8C%E6%8C%87%E9%92%88/index.html">
 <meta property="og:site_name" content="ZhangRuZhang">
-<meta property="og:description" content="关于阿里云域名解析记录填写详解">
+<meta property="og:description" content="老规矩，先上题目 1. 题目给你一个有序数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。 不要使用额外的数组空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。 示例1 123给定数组 nums &#x3D; [1, 1, 2];函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2你不需要考虑数组中超出">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="c:%5CUsers%5Cdell%5CDesktop%5CQQ%E6%88%AA%E5%9B%BE20191204131433.jpg">
-<meta property="article:published_time" content="2019-12-04T05:41:36.000Z">
-<meta property="article:modified_time" content="2019-12-04T05:48:35.622Z">
+<meta property="article:published_time" content="2021-07-02T09:39:50.000Z">
+<meta property="article:modified_time" content="2021-07-02T10:22:16.734Z">
 <meta property="article:author" content="Zhang Ru Zhang">
-<meta property="article:tag" content="域名解析">
+<meta property="article:tag" content="Leetcode">
+<meta property="article:tag" content="双指针">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="c:%5CUsers%5Cdell%5CDesktop%5CQQ%E6%88%AA%E5%9B%BE20191204131433.jpg">
   <!-- Canonical links -->
-  <link rel="canonical" href="www.rickzhang.cn/2019/12/04/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E8%AF%A6%E8%A7%A3/index.html">
+  <link rel="canonical" href="www.rickzhang.cn/2021/07/02/%E4%BB%8E26-%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9%E8%B0%88%E5%88%B0%E5%8F%8C%E6%8C%87%E9%92%88/index.html">
   
     <link rel="alternate" href="/atom.xml" title="ZhangRuZhang" type="application/atom+xml">
   
@@ -356,14 +355,14 @@ _st('install','true','2.0.0');
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-域名解析详解" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-从26-删除有序数组中的重复项谈到双指针" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      域名解析详解
+      从26.删除有序数组中的重复项谈到双指针
     </h1>
   
 
@@ -371,15 +370,15 @@ _st('install','true','2.0.0');
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2019/12/04/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E8%AF%A6%E8%A7%A3/" class="article-date">
-	  <time datetime="2019-12-04T05:41:36.000Z" itemprop="datePublished">2019-12-04</time>
+	<a href="/2021/07/02/%E4%BB%8E26-%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9%E8%B0%88%E5%88%B0%E5%8F%8C%E6%8C%87%E9%92%88/" class="article-date">
+	  <time datetime="2021-07-02T09:39:50.000Z" itemprop="datePublished">2021-07-02</time>
 	</a>
 </span>
         
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90/" rel="tag">域名解析</a>
+	<a class="article-tag-link" href="/tags/Leetcode/" rel="tag">Leetcode</a>, <a class="article-tag-link" href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" rel="tag">双指针</a>
   </span>
 
 
@@ -392,45 +391,43 @@ _st('install','true','2.0.0');
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/12/04/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E8%AF%A6%E8%A7%A3/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/07/02/%E4%BB%8E26-%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9%E8%B0%88%E5%88%B0%E5%8F%8C%E6%8C%87%E9%92%88/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 538(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 817(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="关于阿里云域名解析记录填写详解"><a href="#关于阿里云域名解析记录填写详解" class="headerlink" title="关于阿里云域名解析记录填写详解"></a>关于阿里云域名解析记录填写详解</h1><a id="more"></a>
-
-<p><img src="C:%5CUsers%5Cdell%5CDesktop%5CQQ%E6%88%AA%E5%9B%BE20191204131433.jpg" alt="QQ截图20191204131433"></p>
-<h2 id="记录类型"><a href="#记录类型" class="headerlink" title="记录类型"></a>记录类型</h2><ol>
-<li>A记录：将域名指向一个IPV4地址，需要增加A记录</li>
-<li>CNAME：如果将域名指向一个域名，实现与被指向域名相同的访问效果，需要增加CNAME记录</li>
-<li>MX：建立电子邮箱服务，将指向邮件服务器地址，需要设置MX记录</li>
-<li>NS：域名解析服务器记录，如果要将子域名指定某个域名服务器来解析，需要设置NS记录</li>
-<li>TXT记录：可任意填写（可为空），通常用做SPF记录（反垃圾邮件）使用</li>
-<li>AAAA记录：将主机名（或域名）指向一个IPv6地址（例如：ff03:0:0:0:0:0:0:c1），需要添加AAAA记录</li>
-<li>SRV记录：记录了哪台计算机提供了哪个服务。格式为：服务的名字.协议的类型（例如：_example-server._tcp）</li>
-<li>显性URL：将域名指向一个http（s)协议地址，访问域名时，自动跳转至目标地址（例如：将<a href="http://www.net.cn显性转发到www.hichina.com后，访问www.net.cn时，地址栏显示的地址为：www.hichina.com）。">www.net.cn显性转发到www.hichina.com后，访问www.net.cn时，地址栏显示的地址为：www.hichina.com）。</a></li>
-<li>隐性URL：与显性URL类似，但隐性转发会隐藏真实的目标地址（例如：将<a href="http://www.net.cn隐性转发到www.hichina.com后，访问www.net.cn时，地址栏显示的地址仍然为：www.net.cn）。">www.net.cn隐性转发到www.hichina.com后，访问www.net.cn时，地址栏显示的地址仍然为：www.net.cn）。</a></li>
-</ol>
-<p>例如：A记录常见用于服务器绑定域名</p>
-<p>​           CNAME记录常见于指向github上搭建的服务器</p>
-<h2 id="主机记录"><a href="#主机记录" class="headerlink" title="主机记录"></a>主机记录</h2><p>常见用法有：</p>
-<p><strong>www：</strong>解析后的域名为<a href="http://www.aliyun.com。" target="_blank" rel="noopener">www.aliyun.com。</a></p>
-<p><strong>@：</strong>直接解析主域名 aliyun.com。</p>
-<p><strong>*：</strong>泛解析，匹配其他所有域名 *.aliyun.com。</p>
-<p><strong>mail：</strong>将域名解析为mail.aliyun.com，通常用于解析邮箱服务器。</p>
-<p><strong>二级域名：</strong>如：abc.aliyun.com，填写abc。</p>
-<p><strong>手机网站：</strong>如：m.aliyun.com，填写m。</p>
-<p><strong>显性URL：</strong>不支持泛解析（泛解析：将所有子域名解析到同一地址）</p>
-<p>说到最后发现阿里云的帮助文档比我讲的还详细，哈哈哈，尴尬的一篇博文</p>
-<p>直击阿里云帮助文档：<a href="https://help.aliyun.com/knowledge_detail/29725.html" target="_blank" rel="noopener">https://help.aliyun.com/knowledge_detail/29725.html</a></p>
+        <p>老规矩，先上题目</p>
+<h2 id="1-题目"><a href="#1-题目" class="headerlink" title="1. 题目"></a>1. 题目</h2><p>给你一个有序数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。</p>
+<p>不要使用额外的数组空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。</p>
+<p><strong>示例1</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">给定数组 nums = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line">函数应该返回新的长度 <span class="number">2</span>, 并且原数组 nums 的前两个元素被修改为 <span class="number">1</span>, <span class="number">2</span></span><br><span class="line">你不需要考虑数组中超出新长度后面的元素。</span><br></pre></td></tr></table></figure>
+<p><strong>示例2</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">给定数组 nums = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line">函数应该返回新的长度 <span class="number">5</span>, 并且原数组 nums 的前五个元素被修改为 <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span></span><br><span class="line">你不需要考虑数组中超出新长度后面的元素。</span><br></pre></td></tr></table></figure>
+<h2 id="2-解题思路"><a href="#2-解题思路" class="headerlink" title="2. 解题思路"></a>2. 解题思路</h2><ul>
+<li>暴力解法：遍历数组，依次比较相邻的元素(i和i+1),如果两者不相同则向后遍历，i++;相同则后面的所有元素前移一位；每遇到重复的元素，数组长度缩减1</li>
+<li>双指针解法：定义两个指针分别指向目标位和待移动元素位，可定义初始目标位为0，待移动元素位为1，比较两个指针对应的数据，相等则目标位不变，待移动位加1；不相等则目标位加1，待移动元素复制到目标位，待移动位加1<h2 id="3-代码实现"><a href="#3-代码实现" class="headerlink" title="3. 代码实现"></a>3. 代码实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//暴力解法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> length = nums.length; <span class="comment">//数组长度</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length - <span class="number">1</span>;) &#123;</span><br><span class="line">        <span class="comment">//依次比较相邻的元素</span></span><br><span class="line">        <span class="keyword">if</span> (nums[i] != nums[i+<span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="comment">//不同则往后遍历</span></span><br><span class="line">            i++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//如果相同，则后面所有元素往前移动一位</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; length - <span class="number">1</span> ; j++) &#123;</span><br><span class="line">                nums[j] = nums[j+<span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//每次遇到重复元素，数组长度缩减1</span></span><br><span class="line">            length--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+执行结果：通过</li>
+</ul>
+<p>执行用时：435 ms, 在所有 Java 提交中击败了5.03%的用户</p>
+<p>内存消耗：39.3 MB, 在所有 Java 提交中击败了99.50%的用户</p>
+<p><strong>复杂度分析</strong></p>
+<p>时间复杂度:O(n2)<br>空间复杂度:O(1)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//双指针解法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//定义两个指针</span></span><br><span class="line">    <span class="keyword">int</span> target = <span class="number">0</span>; <span class="comment">//目标位指针</span></span><br><span class="line">    <span class="comment">//i待移动位指针</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        <span class="comment">//如果不相等，则目标位加1，但是如果目标位跟移动位相等了，则跳过赋值操作</span></span><br><span class="line">        <span class="keyword">if</span> (nums[target] != nums[i]) &#123;</span><br><span class="line">            <span class="comment">//target++;</span></span><br><span class="line">            <span class="keyword">if</span> (++target != i) &#123;</span><br><span class="line">                nums[target] = nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> target + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行结果：<br>通过</p>
+<p>执行用时：1 ms, 在所有 Java 提交中击败了83.23%的用户</p>
+<p>内存消耗：39.9 MB, 在所有 Java 提交中击败了88.46%的用户</p>
+<p><strong>复杂度分析</strong></p>
+<p>时间复杂度:O(n)</p>
+<p>空间复杂度:O(1)</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在本道题主要使用了双指针，那为什么会使用到双指针呢？就是当我们需要两个数据，并且两者是按照一定的规律同步变化时，我们就可以选择双指针，相对于暴力解法，少了移动元素时所需要的时间复杂度。</p>
 
       
     </div>
@@ -440,7 +437,7 @@ _st('install','true','2.0.0');
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="www.rickzhang.cn/2019/12/04/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E8%AF%A6%E8%A7%A3/" title="域名解析详解" target="_blank" rel="external">www.rickzhang.cn/2019/12/04/域名解析详解/</a>
+      <a href="www.rickzhang.cn/2021/07/02/%E4%BB%8E26-%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9%E8%B0%88%E5%88%B0%E5%8F%8C%E6%8C%87%E9%92%88/" title="从26.删除有序数组中的重复项谈到双指针" target="_blank" rel="external">www.rickzhang.cn/2021/07/02/从26-删除有序数组中的重复项谈到双指针/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -488,13 +485,9 @@ _st('install','true','2.0.0');
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2019/12/27/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F/" title="虚拟机网络模式"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2019/11/28/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%A4%A7%E9%9B%86-%E5%90%8E%E7%BB%AD%E6%9B%B4%E6%96%B0/" title="排序算法大集(后续更新)"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2021/06/29/java%E9%9B%86%E5%90%88%E6%80%BB%E7%BB%93/" title="java集合总结"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
