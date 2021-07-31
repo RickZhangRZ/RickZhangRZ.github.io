@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>数据结构与算法养成篇 | Hexo</title>
+  <meta name="description" content="评估算法优劣的核心指标是什么? 时间复杂度(流程决定) 额外空间复杂度(流程决定) 常数项时间(实现细节决定)  何为常数时间的操作?如果一个操作的执行时间不以具体样本量为转移,每次执行时间都是固定时间,那这样的操作称为常数时间的操作.常见的常数时间的操作:  常见的算术运算(+ - * &#x2F; %等) 常见的位运算(&gt;&gt;(带符号右移) &gt;&gt;&gt;(不带符号右移) | &amp;am">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构与算法养成篇">
+<meta property="og:url" content="www.rickzhang.cn/2021/07/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%85%BB%E6%88%90%E7%AF%87/index.html">
+<meta property="og:site_name" content="ZhangRuZhang">
+<meta property="og:description" content="评估算法优劣的核心指标是什么? 时间复杂度(流程决定) 额外空间复杂度(流程决定) 常数项时间(实现细节决定)  何为常数时间的操作?如果一个操作的执行时间不以具体样本量为转移,每次执行时间都是固定时间,那这样的操作称为常数时间的操作.常见的常数时间的操作:  常见的算术运算(+ - * &#x2F; %等) 常见的位运算(&gt;&gt;(带符号右移) &gt;&gt;&gt;(不带符号右移) | &amp;am">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-23T05:27:53.000Z">
+<meta property="article:modified_time" content="2021-07-26T02:55:32.040Z">
+<meta property="article:author" content="Zhang Ru Zhang">
+<meta property="article:tag" content="数据结构与算法">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="www.rickzhang.cn/2021/07/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%85%BB%E6%88%90%E7%AF%87/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="ZhangRuZhang" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/cofess" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Rickzhang</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Never put off what you can do today until tomorrow.</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> dongguang, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form">
+        <div class="input-group">
+        <input type="text" class="st-default-search-input search-form-input form-control" placeholder="搜索" />
+        <span class="input-group-btn">
+            <button type="submit" class="search-form-submit btn btn-flat"><i class="icon icon-search"></i></button>
+        </span>
+        </div>
+    </form>
+    <script type="text/javascript">
+(function(w,d,t,u,n,s,e) {w['SwiftypeObject']=n;w[n]=w[n]||function() {
+(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+})(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+_st('install','true','2.0.0');
+</script>
+<style>
+    .st-ui-injected-overlay-container,
+    .st-ui-injected-overlay-container *:not(select) {
+        font-family: inherit !important;
+    }
+    section.st-ui-content.st-search-results a.st-ui-result .st-ui-type-heading {
+        color:  !important;
+    }
+    .st-ui-injected-overlay-container .st-ui-header input[type="text"]:focus {
+        border-bottom: 2px solid ;
+    }
+    .st-ui-injected-overlay-container .st-ui-footer a.st-ui-pagination-link {
+        color: ;
+    }
+    .st-ui-injected-overlay-container .st-ui-footer a.st-ui-pagination-link span.st-ui-arrow {
+        border-color: ;
+    }
+</style>
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/" rel="tag">Leetcode</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structures/" rel="tag">data structures</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E5%9F%BA%E7%A1%80/" rel="tag">java基础</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E5%AD%A6%E4%B9%A0/" rel="tag">java学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springcloud/" rel="tag">springcloud</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E6%B2%BB/" rel="tag">分治</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/" rel="tag">前后端交互</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag">博客搭建</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" rel="tag">双指针</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" rel="tag">哈希表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90/" rel="tag">域名解析</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="tag">多线程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" rel="tag">数据结构与算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E7%A8%8B/" rel="tag">线程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">虚拟机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" rel="tag">软件安装</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%92%E5%BD%92/" rel="tag">递归</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" rel="tag">项目部署</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Leetcode/" style="font-size: 14px;">Leetcode</a> <a href="/tags/data-structures/" style="font-size: 13px;">data structures</a> <a href="/tags/java%E5%9F%BA%E7%A1%80/" style="font-size: 13px;">java基础</a> <a href="/tags/java%E5%AD%A6%E4%B9%A0/" style="font-size: 13px;">java学习</a> <a href="/tags/springcloud/" style="font-size: 13px;">springcloud</a> <a href="/tags/%E5%88%86%E6%B2%BB/" style="font-size: 13px;">分治</a> <a href="/tags/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/" style="font-size: 13px;">前后端交互</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13px;">博客搭建</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="font-size: 13.67px;">双指针</a> <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" style="font-size: 13px;">哈希表</a> <a href="/tags/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90/" style="font-size: 13px;">域名解析</a> <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">多线程</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 13.33px;">排序</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" style="font-size: 13px;">数据结构与算法</a> <a href="/tags/%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">线程</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 13px;">虚拟机</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" style="font-size: 13px;">软件安装</a> <a href="/tags/%E9%80%92%E5%BD%92/" style="font-size: 13px;">递归</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13px;">面试</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" style="font-size: 13px;">项目部署</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">六月 2021</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/07/23/%E5%B0%8F%E5%B0%8F%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/" class="title">小小刷题之旅</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-07-23T05:28:13.000Z" itemprop="datePublished">2021-07-23</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/07/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%85%BB%E6%88%90%E7%AF%87/" class="title">数据结构与算法养成篇</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-07-23T05:27:53.000Z" itemprop="datePublished">2021-07-23</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/07/22/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" class="title">java基础面试题</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-07-22T02:43:35.000Z" itemprop="datePublished">2021-07-22</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/07/20/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%AF%87/" class="title">java多线程篇</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-07-20T01:43:21.000Z" itemprop="datePublished">2021-07-20</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/07/20/java%E5%9F%BA%E7%A1%80%E7%AF%87/" class="title">java基础篇</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-07-20T01:42:51.000Z" itemprop="datePublished">2021-07-20</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-数据结构与算法养成篇" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数据结构与算法养成篇
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/07/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%85%BB%E6%88%90%E7%AF%87/" class="article-date">
+	  <time datetime="2021-07-23T05:27:53.000Z" itemprop="datePublished">2021-07-23</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" rel="tag">数据结构与算法</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/07/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%85%BB%E6%88%90%E7%AF%87/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.1k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 9(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="评估算法优劣的核心指标是什么"><a href="#评估算法优劣的核心指标是什么" class="headerlink" title="评估算法优劣的核心指标是什么?"></a>评估算法优劣的核心指标是什么?</h2><ul>
+<li>时间复杂度(流程决定)</li>
+<li>额外空间复杂度(流程决定)</li>
+<li>常数项时间(实现细节决定)</li>
+</ul>
+<h2 id="何为常数时间的操作"><a href="#何为常数时间的操作" class="headerlink" title="何为常数时间的操作?"></a>何为常数时间的操作?</h2><p>如果一个操作的执行时间不以具体样本量为转移,每次执行时间都是固定时间,那这样的操作称为常数时间的操作.<br>常见的常数时间的操作:</p>
+<ul>
+<li>常见的算术运算(+ - * / %等)</li>
+<li>常见的位运算(&gt;&gt;(带符号右移) &gt;&gt;&gt;(不带符号右移) | &amp; ^) (&gt;&gt;与&gt;&gt;&gt;的区别 &gt;&gt;右移后符号位补上原来的符号位,&gt;&gt;&gt;则无论正负,都是补0,两者移动后总体位数不变)</li>
+<li>赋值,比较,自增,自减等操作</li>
+<li>数组寻址操作<br>总之执行时间固定的操作都是常数时间的操作<h2 id="如何确定算法流程的总操作数量与样本数量之间的表达式关系"><a href="#如何确定算法流程的总操作数量与样本数量之间的表达式关系" class="headerlink" title="如何确定算法流程的总操作数量与样本数量之间的表达式关系?"></a>如何确定算法流程的总操作数量与样本数量之间的表达式关系?</h2></li>
+<li>想象该算法流程所处理的数据状况,要按照最差情况来</li>
+<li>把整个流程彻底拆分为一个个基本动作,保证每个动作都是常数时间的操作</li>
+<li>如果数据量为N,看看基本动作的数量和N是什么关系.<h2 id="如何确定算法流程的时间复杂度"><a href="#如何确定算法流程的时间复杂度" class="headerlink" title="如何确定算法流程的时间复杂度"></a>如何确定算法流程的时间复杂度</h2>当完成了表达式的建立,只要把最高阶项留下即可,低阶项都去掉,高阶项的系数也去掉,记为:O(忽略掉系数的高阶项)<br>N<em>2 == N&lt;&lt;1<br>N/2 == N&gt;&gt;1<br>N</em>2+1 == (N&lt;&lt;1)|1</li>
+</ul>
+<h2 id="时间复杂度的意义"><a href="#时间复杂度的意义" class="headerlink" title="时间复杂度的意义"></a>时间复杂度的意义</h2><p>对于时间复杂度,一个只剩下一个最高阶项,那这样的意义何在呢?</p>
+<ul>
+<li><p>当我们要处理的样本量很大很大时，我们会发现低阶项是什么不是最重要的；每一项的系数是什么，不是最重要的。真正重要的就是最高阶项是什么。</p>
+</li>
+<li><p>它是衡量算法流程的复杂程度的一种指标，该指标只与数据量有关，与过程之外的优化无关。</p>
+<p><strong>注意:</strong>我们会发现，时间复杂度这个指标，是忽略低阶项和所有常数系数的。</p>
+<p>难道同样时间复杂度的流程，在实际运行时候就一样的好吗？</p>
+<p>当然不是。</p>
+<p>时间复杂度只是一个很重要的指标而已。如果两个时间复杂度一样的算法，你还要去在时间上拼优劣，就进入到拼常数时间的阶段，简称拼常数项。</p>
+<h2 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h2><p>你要实现一个算法流程，在实现算法流程的过程中，你需要开辟一些空间来支持你的算法流程。</p>
+<p>作为输入参数的空间，不算额外空间。<br>作为输出结果的空间，也不算额外空间。</p>
+<p>因为这些都是必要的、和现实目标有关的。所以都不算。</p>
+<p>但除此之外，你的流程如果还需要开辟空间才能让你的流程继续下去。这部分空间就是额外空间。</p>
+<p>如果你的流程只需要开辟有限几个变量，额外空间复杂度就是O(1)。</p>
+</li>
+</ul>
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p><strong>算法思路</strong>:将索引为0的下标假设成最小值,与往后的数值比较,如果比索引为0的数值小,则交换位置,一轮下来则实现索引为0的下标为当前最小值,继续往后选择索引为1的下标,重复此操作<br><strong>代码实现</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">selectionSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (arr == <span class="keyword">null</span> || arr.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="comment">//设置最小值在哪个位置上</span></span><br><span class="line">        <span class="keyword">int</span> minIndex = i;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; arr.length; j++) &#123;</span><br><span class="line">            minIndex = arr[j] &lt; arr[minIndex] ? j : minIndex;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(arr,i,minIndex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = arr[i];</span><br><span class="line">    arr[i] = arr[j];</span><br><span class="line">    arr[j] = temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p><strong>算法思路:</strong> 假设数组的长度为N,从[0,N-1]范围上,比较arr[0]和arr[1],谁大谁来到1位置,之后arr[1]和arr[2]进行比较,谁大谁来到2位置,依次往后比较,谁大谁来到N-1位置;从[0,N-2]范围上,比较arr[0]和arr[1],谁大谁来到1位置,之后arr[1]和arr[2]进行比较,谁大谁来到2位置,依次往后比较,谁大谁来到N-2位置…</p>
+<p><strong>代码实现</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (arr == <span class="keyword">null</span> || arr.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> e = arr.length - <span class="number">1</span>; e &gt; <span class="number">0</span>; e++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; e; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[i] &gt; arr[i+<span class="number">1</span>]) &#123;</span><br><span class="line">                swap(arr,i, i+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;	</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><p><strong>算法思路:</strong> 想让arr[0<del>0]上有序，这个范围只有一个数，当然是有序的。<br>想让arr[0</del>1]上有序，所以从arr[1]开始往前看，如果arr[1]&lt;arr[0]，就交换。否则什么也不做。<br>…<br>想让arr[0<del>i]上有序，所以从arr[i]开始往前看，arr[i]这个数不停向左移动，一直移动到左边的数字不再比自己大，停止移动。<br>最后一步，想让arr[0</del>N-1]上有序， arr[N-1]这个数不停向左移动，一直移动到左边的数字不再比自己大，停止移动。</p>
+<p><strong>代码实现</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">insertionSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (arr == <span class="keyword">null</span> || arr.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span> &amp;&amp; arr[j] &gt; arr[j + <span class="number">1</span>]; j--) &#123;</span><br><span class="line">            swap(arr,j,j+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><ol>
+<li><p>在一个有序数组中，找某个数是否存在</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">exist</span><span class="params">(<span class="keyword">int</span>[] sortedArr, <span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (sortedArr == <span class="keyword">null</span> || sortedArr.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> L = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> R = sortedArr.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (L &lt; R) &#123;</span><br><span class="line">        mid = L + ((R - L) &gt;&gt; <span class="number">1</span>);<span class="comment">//==mid = (L+R)/2</span></span><br><span class="line">        <span class="keyword">if</span> (sortedArr[mid] == num) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (sortedArr[mid] &gt; num) &#123;</span><br><span class="line">            R = mid - <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            L = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sortedArr[L] == num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>在一个有序数组中，找&gt;=某个数最左侧的位置 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在arr上,找满足&gt;=value的最左位置</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">nearestIndex</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> L = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> R = arr.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> index = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (L &lt;= R) &#123;</span><br><span class="line">        <span class="keyword">int</span> mid = L + ((R-L) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (arr[mid] &gt;= value) &#123;</span><br><span class="line">            index = mid;</span><br><span class="line">            R = mid - <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            L = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> index;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="3">
+<li>在一个有序数组中，找&lt;=某个数最右侧的位置 </li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">nearestIndex</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> L = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> R = arr.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> index = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (L &lt;= R) &#123;</span><br><span class="line">        <span class="keyword">int</span> mid = L + ((R - L) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (arr[mid] &lt;= value) &#123;</span><br><span class="line">            index = mid;</span><br><span class="line">            L = mid + <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            R = mid - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> index;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="异或运算符"><a href="#异或运算符" class="headerlink" title="异或运算符"></a>异或运算符</h2><p><strong>用法</strong>: 无进位相加–&gt;即相同为0,不同为1</p>
+<p><strong>性质:</strong> </p>
+<ul>
+<li><p>0^N == N  N^N ==0</p>
+</li>
+<li><p>满足交换律和结合律</p>
+<h3 id="小练习"><a href="#小练习" class="headerlink" title="小练习"></a>小练习</h3><h4 id="不用额外变量交换两个数"><a href="#不用额外变量交换两个数" class="headerlink" title="不用额外变量交换两个数"></a>不用额外变量交换两个数</h4><p><strong>代码实现</strong> </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">6</span>;</span><br><span class="line"><span class="keyword">int</span> b = -<span class="number">1000</span>;</span><br><span class="line">a = a ^ b;</span><br><span class="line">b = a ^ b;</span><br><span class="line">a = a ^ b;</span><br></pre></td></tr></table></figure>
+
+<h4 id="怎么把一个int类型的数，提取出最右侧的1来"><a href="#怎么把一个int类型的数，提取出最右侧的1来" class="headerlink" title="怎么把一个int类型的数，提取出最右侧的1来"></a>怎么把一个int类型的数，提取出最右侧的1来</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> ero = 任意数;</span><br><span class="line"><span class="keyword">int</span> rightOne = eor &amp; (~eor + <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="一个数组中有一种数出现了奇数次，其他数都出现了偶数次，怎么找到并打印这种数"><a href="#一个数组中有一种数出现了奇数次，其他数都出现了偶数次，怎么找到并打印这种数" class="headerlink" title="一个数组中有一种数出现了奇数次，其他数都出现了偶数次，怎么找到并打印这种数"></a>一个数组中有一种数出现了奇数次，其他数都出现了偶数次，怎么找到并打印这种数</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printOddTimesNum1</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> eor = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">			eor ^= arr[i];</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(eor);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="一个数组中有两种数出现了奇数次，其他数都出现了偶数次，怎么找到并打印这两种数"><a href="#一个数组中有两种数出现了奇数次，其他数都出现了偶数次，怎么找到并打印这两种数" class="headerlink" title="一个数组中有两种数出现了奇数次，其他数都出现了偶数次，怎么找到并打印这两种数"></a>一个数组中有两种数出现了奇数次，其他数都出现了偶数次，怎么找到并打印这两种数</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printOddTimesNum2</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> eor = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">			eor ^= arr[i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// eor = a ^ b</span></span><br><span class="line">		<span class="comment">// eor != 0</span></span><br><span class="line">		<span class="comment">// eor必然有一个位置上是1</span></span><br><span class="line">		<span class="keyword">int</span> rightOne = eor &amp; (~eor + <span class="number">1</span>); <span class="comment">// 提取出最右的1</span></span><br><span class="line">		<span class="keyword">int</span> onlyOne = <span class="number">0</span>; <span class="comment">// eor'</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; arr.length;i++) &#123;</span><br><span class="line">			<span class="keyword">if</span> ((arr[i] &amp; rightOne) != <span class="number">0</span>) &#123;</span><br><span class="line">				onlyOne ^= arr[i];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(onlyOne + <span class="string">" "</span> + (eor ^ onlyOne));</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="单链表与双链表"><a href="#单链表与双链表" class="headerlink" title="单链表与双链表"></a>单链表与双链表</h3><h4 id="1-单链表和双链表如何反转"><a href="#1-单链表和双链表如何反转" class="headerlink" title="1.单链表和双链表如何反转"></a>1.单链表和双链表如何反转</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//单链表</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Node <span class="title">reverseLinkedList</span><span class="params">(Node head)</span> </span>&#123;</span><br><span class="line">		Node pre = <span class="keyword">null</span>;</span><br><span class="line">		Node next = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">while</span> (head != <span class="keyword">null</span>) &#123;</span><br><span class="line">			next = head.next;</span><br><span class="line">			head.next = pre;</span><br><span class="line">			pre = head;</span><br><span class="line">			head = next;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> pre;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">//双链表</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> DoubleNode <span class="title">reverseDoubleList</span><span class="params">(DoubleNode head)</span> </span>&#123;</span><br><span class="line">		DoubleNode pre = <span class="keyword">null</span>;</span><br><span class="line">		DoubleNode next = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">while</span> (head != <span class="keyword">null</span>) &#123;</span><br><span class="line">			next = head.next;</span><br><span class="line">			head.next = pre;</span><br><span class="line">			head.last = next;</span><br><span class="line">			pre = head;</span><br><span class="line">			head = next;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> pre;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-把给定值都删除"><a href="#2-把给定值都删除" class="headerlink" title="2.把给定值都删除"></a>2.把给定值都删除</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Node <span class="title">removeValue</span><span class="params">(Node head, <span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">while</span> (head != <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span> (head.value != num) &#123;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			head = head.next;</span><br><span class="line">		&#125;</span><br><span class="line">		Node pre = head;</span><br><span class="line">		Node cur = head;</span><br><span class="line">		<span class="keyword">while</span> (cur != <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span> (cur.value == num) &#123;</span><br><span class="line">				pre.next = cur.next;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				pre = cur;</span><br><span class="line">			&#125;</span><br><span class="line">			cur = cur.next;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> head;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="www.rickzhang.cn/2021/07/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%85%BB%E6%88%90%E7%AF%87/" title="数据结构与算法养成篇" target="_blank" rel="external">www.rickzhang.cn/2021/07/23/数据结构与算法养成篇/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/cofess" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/cofess" target="_blank"><span class="text-dark">Rickzhang</span><small class="ml-1x">Never put off what you can do today until tomorrow.</small></a></h3>
+        <div>就读于普通本科的即将踏入社会的打工人</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="lv-container" data-id="city" data-uid="">
+        <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+      </div>    
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2021/07/23/%E5%B0%8F%E5%B0%8F%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/" title="小小刷题之旅"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2021/07/22/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" title="java基础面试题"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+<script defer type="text/javascript">
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+
+    if (typeof LivereTower === 'function') { return; }
+
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
