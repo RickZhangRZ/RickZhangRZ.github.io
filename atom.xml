@@ -6,7 +6,7 @@
   <link href="www.rickzhang.cn/atom.xml" rel="self"/>
   
   <link href="www.rickzhang.cn/"/>
-  <updated>2021-07-31T14:31:50.385Z</updated>
+  <updated>2021-08-07T00:12:22.005Z</updated>
   <id>www.rickzhang.cn/</id>
   
   <author>
@@ -15,6 +15,80 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2.两数相加</title>
+    <link href="www.rickzhang.cn/2021/08/07/2-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/"/>
+    <id>www.rickzhang.cn/2021/08/07/2-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/</id>
+    <published>2021-08-07T00:12:21.000Z</published>
+    <updated>2021-08-07T00:12:22.005Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>1.两数之和</title>
+    <link href="www.rickzhang.cn/2021/08/07/1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/"/>
+    <id>www.rickzhang.cn/2021/08/07/1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</id>
+    <published>2021-08-06T23:46:46.000Z</published>
+    <updated>2021-08-07T00:12:31.461Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1. 两数之和"></a>1. 两数之和</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。</p><p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p><p>你可以按任意顺序返回答案。</p><p><strong>示例1</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [<span class="number">2</span>,<span class="number">7</span>,<span class="number">11</span>,<span class="number">15</span>], target = <span class="number">9</span></span><br><span class="line">输出：[<span class="number">0</span>,<span class="number">1</span>]</span><br><span class="line">解释：因为 nums[<span class="number">0</span>] + nums[<span class="number">1</span>] == <span class="number">9</span> ，返回 [<span class="number">0</span>, <span class="number">1</span>] 。</span><br></pre></td></tr></table></figure><p><strong>示例2</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [<span class="number">3</span>,<span class="number">2</span>,<span class="number">4</span>], target = <span class="number">6</span></span><br><span class="line">输出：[<span class="number">1</span>,<span class="number">2</span>]</span><br></pre></td></tr></table></figure><p><strong>示例3</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [<span class="number">3</span>,<span class="number">3</span>], target = <span class="number">6</span></span><br><span class="line">输出：[<span class="number">0</span>,<span class="number">1</span>]</span><br></pre></td></tr></table></figure><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><ul><li>暴力解法:给定一个数字,然后在数组中找出两个相加符合结果的数,首先得记录数组中有哪些数字,然后根据输入的数字来找另一个符合结果的数字,用一个for循环记录数组中出现过的数字,然后再用一个for循环遍历,寻找另一个符合结果的数字.</li><li>进阶解法: 利用暴力解法的时间复杂度为n2,为什么为n2呢?因为记录用了n,寻找用了n,则可以利用hashmap来替代,实现边记录边寻找.使用hashmap来进行进行实现,用数值做为key,用下标作为value,用一个for循环来遍历数组,每次遍历的时候检查一下hashmap里有没有符合条件的key,没有则加入hashmap,有则返回当前下标和检查到符合条件的下标.</li></ul><h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="comment">//创建一个hashmap表</span></span><br><span class="line">        HashMap&lt;Integer,Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="comment">//遍历数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="comment">//先找一下有没有符合条件的</span></span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(target - nums[i])) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;</span><br><span class="line">                    map.get(target - nums[i]),i</span><br><span class="line">                &#125;;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//没有则加入hashmap</span></span><br><span class="line">            map.put(nums[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;1-两数之和&quot;&gt;&lt;a href=&quot;#1-两数之和&quot; class=&quot;headerlink&quot; title=&quot;1. 两数之和&quot;&gt;&lt;/a&gt;1. 两数之和&lt;/h2&gt;&lt;h3 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=</summary>
+      
+    
+    
+    
+    
+    <category term="Leetcode" scheme="www.rickzhang.cn/tags/Leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试软技能</title>
+    <link href="www.rickzhang.cn/2021/08/04/%E9%9D%A2%E8%AF%95%E8%BD%AF%E6%8A%80%E8%83%BD/"/>
+    <id>www.rickzhang.cn/2021/08/04/%E9%9D%A2%E8%AF%95%E8%BD%AF%E6%8A%80%E8%83%BD/</id>
+    <published>2021-08-04T13:56:25.000Z</published>
+    <updated>2021-08-04T13:56:25.562Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>JVM篇</title>
+    <link href="www.rickzhang.cn/2021/08/04/JVM%E7%AF%87/"/>
+    <id>www.rickzhang.cn/2021/08/04/JVM%E7%AF%87/</id>
+    <published>2021-08-04T09:08:51.000Z</published>
+    <updated>2021-08-05T08:26:18.036Z</updated>
+    
+    <content type="html"><![CDATA[<p>JavaSE体系结构</p><p>JDK包含JRE JRE 包含JVM</p><p>什么是JVM</p><p>它可以说是一个翻译官,可以将字节码class文件翻译成操作系统上的指令</p><p>并不是只有java才能跑在JVM上,支持多种语言,只要是class文件即可,JVM是一种规范,虚构出来的计算机</p><p>为什么要学习JVM虚拟机</p><ul><li><p>编写高效优雅的java程序</p></li><li><p>排查问题,性能优化.例如:oom(内存溢出)</p></li><li><p>面试必问</p><p>JVM历史</p><p> JVM的整体介绍</p><ul><li>内存是JVM的五脏六腑</li><li>内存分配</li><li>垃圾回收</li></ul></li></ul><p>程序计数器</p><p>虚拟机栈</p><ul><li><p>存储当前线程运行方法时的</p><p>javap反编译</p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;JavaSE体系结构&lt;/p&gt;
+&lt;p&gt;JDK包含JRE JRE 包含JVM&lt;/p&gt;
+&lt;p&gt;什么是JVM&lt;/p&gt;
+&lt;p&gt;它可以说是一个翻译官,可以将字节码class文件翻译成操作系统上的指令&lt;/p&gt;
+&lt;p&gt;并不是只有java才能跑在JVM上,支持多种语言,只要是class文件即</summary>
+      
+    
+    
+    
+    
+    <category term="JVM" scheme="www.rickzhang.cn/tags/JVM/"/>
+    
+  </entry>
   
   <entry>
     <title>为什么迟迟没有读懂数据结构与算法</title>
@@ -47,11 +121,20 @@
     <link href="www.rickzhang.cn/2021/07/23/%E5%B0%8F%E5%B0%8F%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/"/>
     <id>www.rickzhang.cn/2021/07/23/%E5%B0%8F%E5%B0%8F%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/</id>
     <published>2021-07-23T05:28:13.000Z</published>
-    <updated>2021-07-23T05:28:13.538Z</updated>
+    <updated>2021-08-07T00:10:03.998Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1. 两数之和"></a>1. 两数之和</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。</p><p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p><p>你可以按任意顺序返回答案。</p><p><strong>示例1</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [<span class="number">2</span>,<span class="number">7</span>,<span class="number">11</span>,<span class="number">15</span>], target = <span class="number">9</span></span><br><span class="line">输出：[<span class="number">0</span>,<span class="number">1</span>]</span><br><span class="line">解释：因为 nums[<span class="number">0</span>] + nums[<span class="number">1</span>] == <span class="number">9</span> ，返回 [<span class="number">0</span>, <span class="number">1</span>] 。</span><br></pre></td></tr></table></figure><p><strong>示例2</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [<span class="number">3</span>,<span class="number">2</span>,<span class="number">4</span>], target = <span class="number">6</span></span><br><span class="line">输出：[<span class="number">1</span>,<span class="number">2</span>]</span><br></pre></td></tr></table></figure><p><strong>示例3</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [<span class="number">3</span>,<span class="number">3</span>], target = <span class="number">6</span></span><br><span class="line">输出：[<span class="number">0</span>,<span class="number">1</span>]</span><br></pre></td></tr></table></figure><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><ul><li>暴力解法:给定一个数字,然后在数组中找出两个相加符合结果的数,首先得记录数组中有哪些数字,然后根据输入的数字来找另一个符合结果的数字,用一个for循环记录数组中出现过的数字,然后再用一个for循环遍历,寻找另一个符合结果的数字.</li><li>进阶解法: 利用暴力解法的时间复杂度为n2,为什么为n2呢?因为记录用了n,寻找用了n,则可以利用hashmap来替代,实现边记录边寻找.使用hashmap来进行进行实现,用数值做为key,用下标作为value,用一个for循环来遍历数组,每次遍历的时候检查一下hashmap里有没有符合条件的key,没有则加入hashmap,有则返回当前下标和检查到符合条件的下标.</li></ul><h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="comment">//创建一个hashmap表</span></span><br><span class="line">        HashMap&lt;Integer,Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="comment">//遍历数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="comment">//先找一下有没有符合条件的</span></span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(target - nums[i])) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;</span><br><span class="line">                    map.get(target - nums[i]),i</span><br><span class="line">                &#125;;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//没有则加入hashmap</span></span><br><span class="line">            map.put(nums[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="11-盛最多水的容器"><a href="#11-盛最多水的容器" class="headerlink" title="11.盛最多水的容器"></a>11.盛最多水的容器</h2><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h3><ul><li>根据输入的数组,将其定义在数轴上,根据高度和宽度来计算最大面积,每次计算面积都是以最短高度为高,下标为宽,对于每一个数,要计算出它的面积最大值,依次类推,比较出最大则是最终结果,每次两条高中小的则移动.</li></ul><h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> r = height.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">            max = Math.max(max, Math.min(height[l],height[r]) * (r - l));</span><br><span class="line">            <span class="keyword">if</span> (height[l] &gt; height[r]) &#123;</span><br><span class="line">                r--;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                l++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;1-两数之和&quot;&gt;&lt;a href=&quot;#1-两数之和&quot; class=&quot;headerlink&quot; title=&quot;1. 两数之和&quot;&gt;&lt;/a&gt;1. 两数之和&lt;/h2&gt;&lt;h3 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=</summary>
+      
     
     
     
     
+    <category term="Leetcode" scheme="www.rickzhang.cn/tags/Leetcode/"/>
     
   </entry>
   
@@ -333,89 +416,6 @@
     <category term="Leetcode" scheme="www.rickzhang.cn/tags/Leetcode/"/>
     
     <category term="双指针" scheme="www.rickzhang.cn/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从26.删除有序数组中的重复项谈到双指针</title>
-    <link href="www.rickzhang.cn/2021/07/02/%E4%BB%8E26-%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9%E8%B0%88%E5%88%B0%E5%8F%8C%E6%8C%87%E9%92%88/"/>
-    <id>www.rickzhang.cn/2021/07/02/%E4%BB%8E26-%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9%E8%B0%88%E5%88%B0%E5%8F%8C%E6%8C%87%E9%92%88/</id>
-    <published>2021-07-02T09:39:50.000Z</published>
-    <updated>2021-07-02T11:49:17.591Z</updated>
-    
-    <content type="html"><![CDATA[<p>老规矩，先上题目</p><h2 id="1-题目"><a href="#1-题目" class="headerlink" title="1. 题目"></a>1. 题目</h2><p>给你一个有序数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。</p><p>不要使用额外的数组空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。</p><p><strong>示例1</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">给定数组 nums = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line">函数应该返回新的长度 <span class="number">2</span>, 并且原数组 nums 的前两个元素被修改为 <span class="number">1</span>, <span class="number">2</span></span><br><span class="line">你不需要考虑数组中超出新长度后面的元素。</span><br></pre></td></tr></table></figure><p><strong>示例2</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">给定数组 nums = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line">函数应该返回新的长度 <span class="number">5</span>, 并且原数组 nums 的前五个元素被修改为 <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span></span><br><span class="line">你不需要考虑数组中超出新长度后面的元素。</span><br></pre></td></tr></table></figure><h2 id="2-解题思路"><a href="#2-解题思路" class="headerlink" title="2. 解题思路"></a>2. 解题思路</h2><ul><li>暴力解法：遍历数组，依次比较相邻的元素(i和i+1),如果两者不相同则向后遍历，i++;相同则后面的所有元素前移一位；每遇到重复的元素，数组长度缩减1</li><li>双指针解法：定义两个指针分别指向目标位和待移动元素位，可定义初始目标位为0，待移动元素位为1，比较两个指针对应的数据，相等则目标位不变，待移动位加1；不相等则目标位加1，待移动元素复制到目标位，待移动位加1<h2 id="3-代码实现"><a href="#3-代码实现" class="headerlink" title="3. 代码实现"></a>3. 代码实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//暴力解法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> length = nums.length; <span class="comment">//数组长度</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length - <span class="number">1</span>;) &#123;</span><br><span class="line">        <span class="comment">//依次比较相邻的元素</span></span><br><span class="line">        <span class="keyword">if</span> (nums[i] != nums[i+<span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="comment">//不同则往后遍历</span></span><br><span class="line">            i++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//如果相同，则后面所有元素往前移动一位</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; length - <span class="number">1</span> ; j++) &#123;</span><br><span class="line">                nums[j] = nums[j+<span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//每次遇到重复元素，数组长度缩减1</span></span><br><span class="line">            length--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>执行结果：通过</li></ul><p>执行用时：435 ms, 在所有 Java 提交中击败了5.03%的用户</p><p>内存消耗：39.3 MB, 在所有 Java 提交中击败了99.50%的用户</p><p><strong>复杂度分析</strong></p><p>时间复杂度:O(n2)<br>空间复杂度:O(1)</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//双指针解法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//定义两个指针</span></span><br><span class="line">    <span class="keyword">int</span> target = <span class="number">0</span>; <span class="comment">//目标位指针</span></span><br><span class="line">    <span class="comment">//i待移动位指针</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        <span class="comment">//如果不相等，则目标位加1，但是如果目标位跟移动位相等了，则跳过赋值操作</span></span><br><span class="line">        <span class="keyword">if</span> (nums[target] != nums[i]) &#123;</span><br><span class="line">            <span class="comment">//target++;</span></span><br><span class="line">            <span class="keyword">if</span> (++target != i) &#123;</span><br><span class="line">                nums[target] = nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> target + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>执行结果：<br>通过</p><p>执行用时：1 ms, 在所有 Java 提交中击败了83.23%的用户</p><p>内存消耗：39.9 MB, 在所有 Java 提交中击败了88.46%的用户</p><p><strong>复杂度分析</strong></p><p>时间复杂度:O(n)</p><p>空间复杂度:O(1)</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在本道题主要使用了双指针，那为什么会使用到双指针呢？就是当我们需要两个数据，并且两者是按照一定的规律同步变化时，我们就可以选择双指针，相对于暴力解法，少了移动元素时所需要的时间复杂度。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;老规矩，先上题目&lt;/p&gt;
-&lt;h2 id=&quot;1-题目&quot;&gt;&lt;a href=&quot;#1-题目&quot; class=&quot;headerlink&quot; title=&quot;1. 题目&quot;&gt;&lt;/a&gt;1. 题目&lt;/h2&gt;&lt;p&gt;给你一个有序数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，</summary>
-      
-    
-    
-    
-    
-    <category term="Leetcode" scheme="www.rickzhang.cn/tags/Leetcode/"/>
-    
-    <category term="双指针" scheme="www.rickzhang.cn/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java集合总结</title>
-    <link href="www.rickzhang.cn/2021/06/29/java%E9%9B%86%E5%90%88%E6%80%BB%E7%BB%93/"/>
-    <id>www.rickzhang.cn/2021/06/29/java%E9%9B%86%E5%90%88%E6%80%BB%E7%BB%93/</id>
-    <published>2021-06-29T01:58:24.000Z</published>
-    <updated>2021-07-23T05:28:26.637Z</updated>
-    
-    <content type="html"><![CDATA[<p>紧密结构:数组<br>跳转结构:链表<br>集合大纲</p><h2 id="1-Collection"><a href="#1-Collection" class="headerlink" title="1. Collection"></a>1. Collection</h2><p>collection是一个接口，主要提供了以下方法：<br>增加:add(E e) addAll(Collection&lt;? extends E&gt; c)<br>删除:clear() remove(Object o)<br>修改:<br>查看:iterator() size()<br>判断:contains(Object o) equals(Object o) isEmpty()<br>对于接口,不能直接创建对向,只能利用实现类来创建对象,例如:</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Collection col = <span class="keyword">new</span> ArrayList();</span><br></pre></td></tr></table></figure><p>集合有一个特点:只能存放引用数据类型的数据,不能是基本数据类型</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">col.add(<span class="number">18</span>); <span class="comment">//基本类型会进行自动装箱</span></span><br><span class="line">col.add(<span class="number">19</span>);</span><br><span class="line">col.add(<span class="number">20</span>);</span><br><span class="line"><span class="comment">//iterator使用</span></span><br><span class="line">Iterator it = col.iterator();<span class="comment">//迭代器</span></span><br><span class="line"><span class="keyword">while</span>(it.hasNext()) &#123;</span><br><span class="line">    System.out.println(it.next())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>ArrayList<br>1.7源码:底层数组,在调用构造器的时候,数组长度初始化10,扩容的时候扩展为原数组的1.5倍<br>1.8源码:底层数组,在调用构造器的时候,次成数组为{},在调用add方法后底层数组才重新赋值为新数组,新数组的长度为10,这样做的好处是节省了内存,在add后才创建长度为10的数组</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;紧密结构:数组&lt;br&gt;跳转结构:链表&lt;br&gt;集合大纲&lt;/p&gt;
-&lt;h2 id=&quot;1-Collection&quot;&gt;&lt;a href=&quot;#1-Collection&quot; class=&quot;headerlink&quot; title=&quot;1. Collection&quot;&gt;&lt;/a&gt;1. Collection&lt;/</summary>
-      
-    
-    
-    
-    
-    <category term="java基础" scheme="www.rickzhang.cn/tags/java%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>谈到环，你应该想到啥</title>
-    <link href="www.rickzhang.cn/2021/06/27/%E8%B0%88%E5%88%B0%E7%8E%AF%EF%BC%8C%E4%BD%A0%E5%BA%94%E8%AF%A5%E6%83%B3%E5%88%B0%E5%95%A5/"/>
-    <id>www.rickzhang.cn/2021/06/27/%E8%B0%88%E5%88%B0%E7%8E%AF%EF%BC%8C%E4%BD%A0%E5%BA%94%E8%AF%A5%E6%83%B3%E5%88%B0%E5%95%A5/</id>
-    <published>2021-06-27T15:42:33.000Z</published>
-    <updated>2021-06-27T15:42:33.626Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>如何解决跨域问题</title>
-    <link href="www.rickzhang.cn/2021/06/27/%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/"/>
-    <id>www.rickzhang.cn/2021/06/27/%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</id>
-    <published>2021-06-27T13:54:16.000Z</published>
-    <updated>2021-06-27T14:12:22.458Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="出现跨域的标识"><a href="#出现跨域的标识" class="headerlink" title="出现跨域的标识"></a>出现跨域的标识</h2><p>当我们在前端项目中，向后端发送请求获取数据的时候，会出现：请求的资源上没有’ Access-Control-Allow-Origin’标头（跨域请求失败）</p><h2 id="何为跨域"><a href="#何为跨域" class="headerlink" title="何为跨域"></a>何为跨域</h2><p>跨域是指通过JS在不同的域之间进行数据传输或通信，比如用ajax向一个不同的域请求数据，只要协议、域名、端口有任何一个不同，都被当作是不同的域,浏览器就不允许跨域请求。<br>常见的跨域：<br><img src="http://images.xiaozhang233.top/image.png" alt="images"></p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>跨域的允许主要由服务器端控制。服务器端通过在响应的 header 中设置  Access-Control-Allow-Origin 及相关一系列参数，提供跨域访问的允许策略，设置响应头中的参数来允许跨域域请求:</p><ol><li>Access-Control-Allow-Credentials</li><li>Access-Control-Allow-Origin 标识允许跨域的请求有哪些<br>例如在java开发中常常这样来解决：</li><li>在POM文件中引入依赖和在web.xml中配置跨域filter<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 导入POM文件 --&gt;</span><br><span class="line">&lt;!-- 解决跨域问题所需依赖 --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;com.thetransactioncompany&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;cors-filter&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;2.5&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;!-- 在web.xml中配置跨域filter --&gt;</span><br><span class="line">&lt;!--配置跨域过滤器--&gt;</span><br><span class="line">  &lt;filter&gt;</span><br><span class="line">    &lt;filter-name&gt;corsFilter&lt;/filter-name&gt;</span><br><span class="line">    &lt;filter-<span class="class"><span class="keyword">class</span>&gt;<span class="title">com</span>.<span class="title">thetransactioncompany</span>.<span class="title">cors</span>.<span class="title">CORSFilter</span>&lt;/<span class="title">filter</span>-<span class="title">class</span>&gt;</span></span><br><span class="line"><span class="class">  &lt;/<span class="title">filter</span>&gt;</span></span><br><span class="line"><span class="class">  &lt;<span class="title">filter</span>-<span class="title">mapping</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;<span class="title">filter</span>-<span class="title">name</span>&gt;<span class="title">corsFilter</span>&lt;/<span class="title">filter</span>-<span class="title">name</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;<span class="title">url</span>-<span class="title">pattern</span>&gt;/*&lt;/<span class="title">url</span>-<span class="title">pattern</span>&gt;</span></span><br><span class="line"><span class="class">  &lt;/<span class="title">filter</span>-<span class="title">mapping</span>&gt;</span></span><br></pre></td></tr></table></figure></li><li>直接导入java类来进行解决<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.cors.CorsConfiguration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.config.annotation.CorsRegistry;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.config.annotation.WebMvcConfigurer;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CorsConfig</span> <span class="keyword">implements</span> <span class="title">WebMvcConfigurer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addCorsMappings</span><span class="params">(CorsRegistry registry)</span> </span>&#123;</span><br><span class="line">        registry.addMapping(<span class="string">"/**"</span>)</span><br><span class="line">                .allowedOriginPatterns(<span class="string">"*"</span>)</span><br><span class="line">                .allowedHeaders(CorsConfiguration.ALL)</span><br><span class="line">                .allowedMethods(CorsConfiguration.ALL)</span><br><span class="line">                .allowCredentials(<span class="keyword">true</span>)</span><br><span class="line">                .maxAge(<span class="number">3600</span>); <span class="comment">// 1小时内不需要再预检（发OPTIONS请求）</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;出现跨域的标识&quot;&gt;&lt;a href=&quot;#出现跨域的标识&quot; class=&quot;headerlink&quot; title=&quot;出现跨域的标识&quot;&gt;&lt;/a&gt;出现跨域的标识&lt;/h2&gt;&lt;p&gt;当我们在前端项目中，向后端发送请求获取数据的时候，会出现：请求的资源上没有’ Access-Cont</summary>
-      
-    
-    
-    
-    
-    <category term="前后端交互" scheme="www.rickzhang.cn/tags/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/"/>
     
   </entry>
   
