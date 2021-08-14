@@ -17,21 +17,18 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>springcloud使用 | Hexo</title>
-  <meta name="description" content="nacos注册中心使用方式：1.为项目导入alibaba的依赖2.导入nacos的依赖3.在main加注解4.需要给每一个微服务加上自己的名字 想要远程调用别的服务1.引入open-feign2.编写一个接口，告诉springcloud这个接口需要调用远程服务3.声明接口的每一个方法都是调用哪个远程服务的那个请求4.开启远程调用功能远程调用注意版本：https:&#x2F;&#x2F;blog.csdn.net&#x2F;we">
-<meta property="og:type" content="article">
-<meta property="og:title" content="springcloud使用">
-<meta property="og:url" content="www.rickzhang.cn/2021/07/10/springcloud%E4%BD%BF%E7%94%A8/index.html">
+  <title>15.三数之和 | Hexo</title>
+  <meta property="og:type" content="article">
+<meta property="og:title" content="15.三数之和">
+<meta property="og:url" content="www.rickzhang.cn/2021/08/14/15-%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/index.html">
 <meta property="og:site_name" content="ZhangRuZhang">
-<meta property="og:description" content="nacos注册中心使用方式：1.为项目导入alibaba的依赖2.导入nacos的依赖3.在main加注解4.需要给每一个微服务加上自己的名字 想要远程调用别的服务1.引入open-feign2.编写一个接口，告诉springcloud这个接口需要调用远程服务3.声明接口的每一个方法都是调用哪个远程服务的那个请求4.开启远程调用功能远程调用注意版本：https:&#x2F;&#x2F;blog.csdn.net&#x2F;we">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-07-10T06:29:39.000Z">
-<meta property="article:modified_time" content="2021-07-13T06:22:08.158Z">
+<meta property="article:published_time" content="2021-08-14T01:45:46.000Z">
+<meta property="article:modified_time" content="2021-08-14T01:45:46.924Z">
 <meta property="article:author" content="Zhang Ru Zhang">
-<meta property="article:tag" content="springcloud">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="www.rickzhang.cn/2021/07/10/springcloud%E4%BD%BF%E7%94%A8/index.html">
+  <link rel="canonical" href="www.rickzhang.cn/2021/08/14/15-%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/index.html">
   
     <link rel="alternate" href="/atom.xml" title="ZhangRuZhang" type="application/atom+xml">
   
@@ -354,14 +351,14 @@ _st('install','true','2.0.0');
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-springcloud使用" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-15-三数之和" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      springcloud使用
+      15.三数之和
     </h1>
   
 
@@ -369,17 +366,12 @@ _st('install','true','2.0.0');
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2021/07/10/springcloud%E4%BD%BF%E7%94%A8/" class="article-date">
-	  <time datetime="2021-07-10T06:29:39.000Z" itemprop="datePublished">2021-07-10</time>
+	<a href="/2021/08/14/15-%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/" class="article-date">
+	  <time datetime="2021-08-14T01:45:46.000Z" itemprop="datePublished">2021-08-14</time>
 	</a>
 </span>
         
         
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/springcloud/" rel="tag">springcloud</a>
-  </span>
-
 
         
 	<span class="article-read hidden-xs">
@@ -390,10 +382,10 @@ _st('install','true','2.0.0');
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/07/10/springcloud%E4%BD%BF%E7%94%A8/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/08/14/15-%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 196(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 0(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -403,12 +395,7 @@ _st('install','true','2.0.0');
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>nacos注册中心<br>使用方式：<br>1.为项目导入alibaba的依赖<br>2.导入nacos的依赖<br>3.在main加注解<br>4.需要给每一个微服务加上自己的名字</p>
-<p>想要远程调用别的服务<br>1.引入open-feign<br>2.编写一个接口，告诉springcloud这个接口需要调用远程服务<br>3.声明接口的每一个方法都是调用哪个远程服务的那个请求<br>4.开启远程调用功能<br>远程调用注意版本：<a href="https://blog.csdn.net/weixin_45729934/article/details/110310119" target="_blank" rel="noopener">https://blog.csdn.net/weixin_45729934/article/details/110310119</a></p>
-<p>nacos作为配置中心<br>1.导入pom：nacos config starter<br>2.创建配置文件：bootstrap.properties<br>3.在127.0.0.1：8848中创建配置文件：项目名.properties<br>4.在controller加上@RefreshScope—-动态刷新</p>
-<p>API网关</p>
-<p>vue<br>初始化：npm init -y<br>安装vue依赖：npm install vue</p>
-
+        
       
     </div>
     <div class="article-footer">
@@ -417,7 +404,7 @@ _st('install','true','2.0.0');
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="www.rickzhang.cn/2021/07/10/springcloud%E4%BD%BF%E7%94%A8/" title="springcloud使用" target="_blank" rel="external">www.rickzhang.cn/2021/07/10/springcloud使用/</a>
+      <a href="www.rickzhang.cn/2021/08/14/15-%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/" title="15.三数之和" target="_blank" rel="external">www.rickzhang.cn/2021/08/14/15-三数之和/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -465,13 +452,9 @@ _st('install','true','2.0.0');
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2021/07/14/%E4%BD%A0%E5%BA%94%E8%AF%A5%E6%87%82%E7%9A%84%E6%8E%92%E5%BA%8F/" title="你应该懂的排序"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2021/07/09/%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="线程学习笔记"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2021/08/10/14-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/" title="14.最长公共前缀"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

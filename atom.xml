@@ -6,7 +6,7 @@
   <link href="www.rickzhang.cn/atom.xml" rel="self"/>
   
   <link href="www.rickzhang.cn/"/>
-  <updated>2021-08-10T07:56:57.592Z</updated>
+  <updated>2021-08-14T01:45:46.924Z</updated>
   <id>www.rickzhang.cn/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>15.三数之和</title>
+    <link href="www.rickzhang.cn/2021/08/14/15-%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/"/>
+    <id>www.rickzhang.cn/2021/08/14/15-%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/</id>
+    <published>2021-08-14T01:45:46.000Z</published>
+    <updated>2021-08-14T01:45:46.924Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>14.最长公共前缀</title>
@@ -370,29 +383,6 @@
     
     
     <category term="springcloud" scheme="www.rickzhang.cn/tags/springcloud/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>线程学习笔记</title>
-    <link href="www.rickzhang.cn/2021/07/09/%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>www.rickzhang.cn/2021/07/09/%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
-    <published>2021-07-09T02:52:48.000Z</published>
-    <updated>2021-07-13T06:23:17.082Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="享学"><a href="#享学" class="headerlink" title="享学"></a>享学</h2><ol><li>安装完成的软件叫应用程序 是死的<br>打开后叫进程 操作系统分配资源的最小单位<br>进程与进程之间是相互独立<br>线程是CPU调度的最小单位<br>线程必须依赖于进程<br>进程里允许有多个线程<br>线程之间可以共享进程的资源<br>CPU多核数与线程的关系：一对一关系<br>RR调度  CPU时间片轮转机制<br>并行与并发：<br>并行：可以同时运行的任务数<br>并发：讨论并发无法脱离时间，可以交替执行不用任务，<br>创建线程的方式有两种，在官方JDK源码Thread里有写</li><li>继承Thread</li><li>实现Runnable接口<br>两者有什么区别呢？<br>Thread是线程的抽象，Runnable是对任务的抽象<br>stop()方法为什么不建议使用？<br>可能会导致线程所占用的资源不会正常的释放<br>interrupt()是对线程进行中断<br>isInterrupted()是判断线程是否被中断<br>interrupted() 把标志位改为false<br>JDK线程是协作式，不是抢占式</li><li>实现接口Runnable的线程如何进行中断？<br>Thread.currentThread().isInterrupted()</li></ol><h2 id="马士兵"><a href="#马士兵" class="headerlink" title="马士兵"></a>马士兵</h2><p>什么是进程？<br>什么是线程？<br>什么是qia</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;享学&quot;&gt;&lt;a href=&quot;#享学&quot; class=&quot;headerlink&quot; title=&quot;享学&quot;&gt;&lt;/a&gt;享学&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;安装完成的软件叫应用程序 是死的&lt;br&gt;打开后叫进程 操作系统分配资源的最小单位&lt;br&gt;进程与进程之间是相互独立&lt;br&gt;线程是C</summary>
-      
-    
-    
-    
-    
-    <category term="线程" scheme="www.rickzhang.cn/tags/%E7%BA%BF%E7%A8%8B/"/>
     
   </entry>
   
