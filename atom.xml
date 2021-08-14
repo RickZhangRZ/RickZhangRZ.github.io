@@ -6,7 +6,7 @@
   <link href="www.rickzhang.cn/atom.xml" rel="self"/>
   
   <link href="www.rickzhang.cn/"/>
-  <updated>2021-08-09T11:02:06.551Z</updated>
+  <updated>2021-08-10T07:56:57.592Z</updated>
   <id>www.rickzhang.cn/</id>
   
   <author>
@@ -17,19 +17,45 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>14.最长公共前缀</title>
+    <link href="www.rickzhang.cn/2021/08/10/14-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/"/>
+    <id>www.rickzhang.cn/2021/08/10/14-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/</id>
+    <published>2021-08-10T07:56:57.000Z</published>
+    <updated>2021-08-10T07:56:57.592Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>盛最多水的容器</title>
+    <link href="www.rickzhang.cn/2021/08/10/%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/"/>
+    <id>www.rickzhang.cn/2021/08/10/%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/</id>
+    <published>2021-08-10T07:56:23.000Z</published>
+    <updated>2021-08-10T07:56:23.161Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>104.二叉树的最大深度</title>
     <link href="www.rickzhang.cn/2021/08/08/104-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/"/>
     <id>www.rickzhang.cn/2021/08/08/104-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/</id>
     <published>2021-08-08T08:30:03.000Z</published>
-    <updated>2021-08-09T11:02:06.551Z</updated>
+    <updated>2021-08-10T15:31:15.648Z</updated>
     
-    <content type="html"><![CDATA[<p>##</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="1.题目描述"></a>1.题目描述</h2><p>给定一个二叉树，找出其最大深度。</p><p>二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。</p><p><strong>说明:</strong> 叶子节点是指没有子节点的节点。</p><p><strong>示例</strong></p><p>给定二叉树 [3,9,20,null,null,15,7]，</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  <span class="number">3</span></span><br><span class="line"> / \</span><br><span class="line"><span class="number">9</span>  <span class="number">20</span></span><br><span class="line">  /  \</span><br><span class="line"> <span class="number">15</span>   <span class="number">7</span></span><br></pre></td></tr></table></figure><p>返回它的最大深度 3 。</p><h2 id="2-解题思路"><a href="#2-解题思路" class="headerlink" title="2. 解题思路"></a>2. 解题思路</h2><p>对于二叉树求深度主要的遍历方式有:广度优先遍历BFS(Breadth First Search),深度优先遍历DFS(Depth First Search)</p><ul><li><p>广度优先遍历BFS:</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//主要思想:自上而下，将同一层结点遍历完后才开始遍历下一层结点</span></span><br><span class="line"><span class="comment">//时间复杂度为:O(n)-&gt;n是二叉树节点的数目,每个节点会被遍历一次</span></span><br><span class="line"><span class="comment">//空间复杂度为:O(n)</span></span><br><span class="line"><span class="comment">//代码实现</span></span><br><span class="line"><span class="comment">//定义一棵二叉树</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">    <span class="comment">//定义节点的值</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    <span class="comment">//定义左子树</span></span><br><span class="line">    TreeNode left;</span><br><span class="line">    <span class="comment">//定义右子树</span></span><br><span class="line">    TreeNode right;</span><br><span class="line">    <span class="comment">//定义初始化方法</span></span><br><span class="line">    TreeNode(<span class="keyword">int</span> x) &#123;</span><br><span class="line">        val = x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//空树判断</span></span><br><span class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;<span class="keyword">return</span> <span class="number">0</span>;&#125;</span><br><span class="line">    Queue&lt;TreeNode&gt; queue = <span class="keyword">new</span> LinkedList&lt;TreeNode&gt;(); <span class="comment">//使用队列来记录各层节点</span></span><br><span class="line">    queue.offer(root);<span class="comment">//根节点入队</span></span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>; <span class="comment">//记录树的深度</span></span><br><span class="line">    <span class="keyword">while</span> (!queue.isEmpty) &#123;</span><br><span class="line">        <span class="keyword">int</span> size = queue.size();DDDDDDDDDDDDDDDDDDFDFD\P]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>深度优先遍历DFS的主要思想:</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DFS将会纵向遍历节点，在遍历每个节点时，即可得到当前节点至根节点的深度</span><br></pre></td></tr></table></figure></li></ul>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;##&lt;/p&gt;
-</summary>
+    <summary type="html">&lt;h2 id=&quot;1-题目描述&quot;&gt;&lt;a href=&quot;#1-题目描述&quot; class=&quot;headerlink&quot; title=&quot;1.题目描述&quot;&gt;&lt;/a&gt;1.题目描述&lt;/h2&gt;&lt;p&gt;给定一个二叉树，找出其最大深度。&lt;/p&gt;
+&lt;p&gt;二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。&lt;/</summary>
       
     
     
@@ -367,56 +393,6 @@
     
     
     <category term="线程" scheme="www.rickzhang.cn/tags/%E7%BA%BF%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从3.无重复字符的最长子串到哈希表</title>
-    <link href="www.rickzhang.cn/2021/07/07/%E4%BB%8E3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2%E5%88%B0%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
-    <id>www.rickzhang.cn/2021/07/07/%E4%BB%8E3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2%E5%88%B0%E5%93%88%E5%B8%8C%E8%A1%A8/</id>
-    <published>2021-07-07T15:06:29.000Z</published>
-    <updated>2021-08-07T15:59:50.727Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-题目"><a href="#1-题目" class="headerlink" title="1. 题目"></a>1. 题目</h2><p>给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。<br><strong>示例1</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: s = <span class="string">"abcabcbb"</span></span><br><span class="line">输出: <span class="number">3</span> </span><br><span class="line">解释: 因为无重复字符的最长子串是 <span class="string">"abc"</span>，所以其长度为 <span class="number">3</span>。</span><br></pre></td></tr></table></figure><p><strong>示例2</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: s = <span class="string">"bbbbb"</span></span><br><span class="line">输出: <span class="number">1</span></span><br><span class="line">解释: 因为无重复字符的最长子串是 <span class="string">"b"</span>，所以其长度为 <span class="number">1</span>。</span><br></pre></td></tr></table></figure><h2 id="2-解题思路"><a href="#2-解题思路" class="headerlink" title="2. 解题思路"></a>2. 解题思路</h2><p>从题目的无重复可以引入哈希表，因为哈希表对于查找是比较快的<br>先定义一个数组来存储</p><h2 id="3-代码实现"><a href="#3-代码实现" class="headerlink" title="3. 代码实现"></a>3. 代码实现</h2><p><strong>实现1</strong></p><ul><li>利用双指针+哈希表来实现,初始化哈希表,遍历字符串,使用双指针定位子串索引,如果字符已出现,则定位到上一次出现的下一个索引,并且左指针只往右,不往左,之后记录该字符最后一次出现的索引,计算子串长度,并记录最大值.</li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = s.length();</span><br><span class="line">        <span class="comment">//判断输入的合法性</span></span><br><span class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span> || len == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>, <span class="comment">//最长不重复子串的长度</span></span><br><span class="line">        left = <span class="number">0</span>, <span class="comment">//子串最左端字符索引</span></span><br><span class="line">        right = <span class="number">0</span>; <span class="comment">//子串最右端字符索引</span></span><br><span class="line">        <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">128</span>]; <span class="comment">//ASCII码</span></span><br><span class="line">        <span class="comment">//赋初始值</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">            arr[i] = -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//遍历字符串的所有字符</span></span><br><span class="line">        <span class="keyword">while</span> (right &lt; len) &#123;</span><br><span class="line">            <span class="keyword">int</span> c = s.charAt(right);<span class="comment">//取出right对应索引的值</span></span><br><span class="line">            <span class="keyword">if</span> (arr[c] != -<span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">int</span> start0 = arr[c] + <span class="number">1</span>;</span><br><span class="line">                left = left &gt;= start0 ? left : start0;</span><br><span class="line">            &#125;</span><br><span class="line">            arr[c] = right;</span><br><span class="line">            <span class="keyword">int</span> size = right + <span class="number">1</span> - left;</span><br><span class="line">            res = res &gt; size ? res : size;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>执行结果：<br>通过</p><p>执行用时：2 ms, 在所有 Java 提交中击败了100.00%的用户</p><p>内存消耗：38.3 MB, 在所有 Java 提交中击败了83.64%的用户</p><p><strong>复杂度分析</strong><br>时间复杂度:O(n)<br>空间复杂度:O(1)</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;1-题目&quot;&gt;&lt;a href=&quot;#1-题目&quot; class=&quot;headerlink&quot; title=&quot;1. 题目&quot;&gt;&lt;/a&gt;1. 题目&lt;/h2&gt;&lt;p&gt;给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。&lt;br&gt;&lt;strong&gt;示例1&lt;/strong&gt;&lt;/p&gt;</summary>
-      
-    
-    
-    
-    
-    <category term="Leetcode" scheme="www.rickzhang.cn/tags/Leetcode/"/>
-    
-    <category term="双指针" scheme="www.rickzhang.cn/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
-    
-    <category term="哈希表" scheme="www.rickzhang.cn/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>80.删除有序数组中的重复项Ⅱ</title>
-    <link href="www.rickzhang.cn/2021/07/02/80-%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9%E2%85%A1/"/>
-    <id>www.rickzhang.cn/2021/07/02/80-%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9%E2%85%A1/</id>
-    <published>2021-07-02T15:40:30.000Z</published>
-    <updated>2021-07-02T16:27:44.731Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-题目"><a href="#1-题目" class="headerlink" title="1. 题目"></a>1. 题目</h2><p>给你一个有序数组 nums ，请你 原地 删除重复出现的元素，使每个元素 最多出现两次 ，返回删除后数组的新长度。</p><p>不要使用额外的数组空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。</p><p><strong>示例1</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">输出：<span class="number">5</span>, nums = [<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">解释：函数应返回新长度 length = <span class="number">5</span>, 并且原数组的前五个元素被修改为 <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span> 。 不需要考虑数组中超出新长度后面的元素。</span><br></pre></td></tr></table></figure><h2 id="2-解题思路"><a href="#2-解题思路" class="headerlink" title="2. 解题思路"></a>2. 解题思路</h2><ul><li>相对于26题目，对了一个条件，只需要多了一个步伐便可<h2 id="3-代码实现"><a href="#3-代码实现" class="headerlink" title="3. 代码实现"></a>3. 代码实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> length = nums.length;<span class="comment">//数组长度</span></span><br><span class="line">    <span class="comment">//如果数组长度小于等于2，则不用进行操作</span></span><br><span class="line">    <span class="keyword">if</span> (length &lt; n) &#123;</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//定义双指针</span></span><br><span class="line">    <span class="keyword">int</span> slow = <span class="number">2</span>, fast = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">while</span> (fast &lt; n) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[slow-<span class="number">2</span>] != nums[fast]) &#123;</span><br><span class="line">            nums[slow] = nums[fast];</span><br><span class="line">            ++slow;</span><br><span class="line">        &#125;</span><br><span class="line">        ++fast;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> slow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>执行结果：<br>通过</li></ul><p>执行用时：<br>0 ms<br>, 在所有 Java 提交中击败了<br>100.00%<br>的用户</p><p>内存消耗：<br>38.4 MB<br>, 在所有 Java 提交中击败了<br>79.48%<br>的用户</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;1-题目&quot;&gt;&lt;a href=&quot;#1-题目&quot; class=&quot;headerlink&quot; title=&quot;1. 题目&quot;&gt;&lt;/a&gt;1. 题目&lt;/h2&gt;&lt;p&gt;给你一个有序数组 nums ，请你 原地 删除重复出现的元素，使每个元素 最多出现两次 ，返回删除后数组的新长度。&lt;/p</summary>
-      
-    
-    
-    
-    
-    <category term="Leetcode" scheme="www.rickzhang.cn/tags/Leetcode/"/>
-    
-    <category term="双指针" scheme="www.rickzhang.cn/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
     
   </entry>
   
