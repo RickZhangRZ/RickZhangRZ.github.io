@@ -6,7 +6,7 @@
   <link href="www.rickzhang.cn/atom.xml" rel="self"/>
   
   <link href="www.rickzhang.cn/"/>
-  <updated>2021-08-14T01:45:46.924Z</updated>
+  <updated>2021-08-23T01:24:51.785Z</updated>
   <id>www.rickzhang.cn/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>二叉树总结</title>
+    <link href="www.rickzhang.cn/2021/08/22/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%80%BB%E7%BB%93/"/>
+    <id>www.rickzhang.cn/2021/08/22/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%80%BB%E7%BB%93/</id>
+    <published>2021-08-22T14:56:30.000Z</published>
+    <updated>2021-08-23T01:24:51.785Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Class Node &#123;</span><br><span class="line">    V value;</span><br><span class="line">    Node left;</span><br><span class="line">    Node right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="2-遍历方式"><a href="#2-遍历方式" class="headerlink" title="2. 遍历方式"></a>2. 遍历方式</h3><h4 id="常见的先、中、后序遍历"><a href="#常见的先、中、后序遍历" class="headerlink" title="常见的先、中、后序遍历"></a>常见的先、中、后序遍历</h4><ol><li><p>先序遍历</p><ul><li><p>递归</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">pre</span><span class="params">(Node head)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (head == <span class="keyword">null</span>) &#123;</span><br><span class="line">        reruen;</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(head.value);</span><br><span class="line">    pre(head.left);</span><br><span class="line">    pre(head.right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul></li></ol><ul><li><p>非递归</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实现思路</span></span><br><span class="line"><span class="comment">/**  1. 栈顶先入栈，弹出打印</span></span><br><span class="line"><span class="comment"> *   2. 如有右，压入右</span></span><br><span class="line"><span class="comment"> *   3. 如有左，压入左</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">pre</span><span class="params">(Node head)</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"pre-order:"</span>);</span><br><span class="line">    <span class="keyword">if</span> (head != nill) &#123;</span><br><span class="line">        Stack&lt;Node&gt; stack = <span class="keyword">new</span> Stack&lt;Node&gt;;</span><br><span class="line">        stack.add(head); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><ol start="2"><li><p>中序遍历</p><ul><li><p>递归</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">in</span><span class="params">(Node head)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (head == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    in(head.left);</span><br><span class="line">    System.out.println(head.value);</span><br><span class="line">    in(head.right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>非递归</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure></li></ul></li></ol><ol start="3"><li><p>后序遍历</p><ul><li><p>递归</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">pos</span><span class="params">(Node head)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (head == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    pos(head.left);</span><br><span class="line">    pos(head.right);</span><br><span class="line">    System.out.println(head.value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>非递归</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure></li></ul></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;二叉树&quot;&gt;&lt;a href=&quot;#二叉树&quot; class=&quot;headerlink&quot; title=&quot;二叉树&quot;&gt;&lt;/a&gt;二叉树&lt;/h2&gt;&lt;h3 id=&quot;1-定义&quot;&gt;&lt;a href=&quot;#1-定义&quot; class=&quot;headerlink&quot; title=&quot;1. 定义&quot;&gt;&lt;/a&gt;1.</summary>
+      
+    
+    
+    
+    
+    <category term="数据结构" scheme="www.rickzhang.cn/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>17.电话号码的字母组合</title>
+    <link href="www.rickzhang.cn/2021/08/15/17-%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/"/>
+    <id>www.rickzhang.cn/2021/08/15/17-%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/</id>
+    <published>2021-08-15T01:11:27.000Z</published>
+    <updated>2021-08-15T01:11:27.018Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>15.三数之和</title>
@@ -85,11 +120,13 @@
     <link href="www.rickzhang.cn/2021/08/07/2-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/"/>
     <id>www.rickzhang.cn/2021/08/07/2-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/</id>
     <published>2021-08-07T00:12:21.000Z</published>
-    <updated>2021-08-07T00:12:22.005Z</updated>
+    <updated>2021-08-17T02:13:57.465Z</updated>
     
     
     
     
+    
+    <category term="Leetcode" scheme="www.rickzhang.cn/tags/Leetcode/"/>
     
   </entry>
   
@@ -98,9 +135,9 @@
     <link href="www.rickzhang.cn/2021/08/07/1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/"/>
     <id>www.rickzhang.cn/2021/08/07/1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</id>
     <published>2021-08-06T23:46:46.000Z</published>
-    <updated>2021-08-07T00:12:31.461Z</updated>
+    <updated>2021-08-17T01:56:27.057Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1. 两数之和"></a>1. 两数之和</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。</p><p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p><p>你可以按任意顺序返回答案。</p><p><strong>示例1</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [<span class="number">2</span>,<span class="number">7</span>,<span class="number">11</span>,<span class="number">15</span>], target = <span class="number">9</span></span><br><span class="line">输出：[<span class="number">0</span>,<span class="number">1</span>]</span><br><span class="line">解释：因为 nums[<span class="number">0</span>] + nums[<span class="number">1</span>] == <span class="number">9</span> ，返回 [<span class="number">0</span>, <span class="number">1</span>] 。</span><br></pre></td></tr></table></figure><p><strong>示例2</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [<span class="number">3</span>,<span class="number">2</span>,<span class="number">4</span>], target = <span class="number">6</span></span><br><span class="line">输出：[<span class="number">1</span>,<span class="number">2</span>]</span><br></pre></td></tr></table></figure><p><strong>示例3</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [<span class="number">3</span>,<span class="number">3</span>], target = <span class="number">6</span></span><br><span class="line">输出：[<span class="number">0</span>,<span class="number">1</span>]</span><br></pre></td></tr></table></figure><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><ul><li>暴力解法:给定一个数字,然后在数组中找出两个相加符合结果的数,首先得记录数组中有哪些数字,然后根据输入的数字来找另一个符合结果的数字,用一个for循环记录数组中出现过的数字,然后再用一个for循环遍历,寻找另一个符合结果的数字.</li><li>进阶解法: 利用暴力解法的时间复杂度为n2,为什么为n2呢?因为记录用了n,寻找用了n,则可以利用hashmap来替代,实现边记录边寻找.使用hashmap来进行进行实现,用数值做为key,用下标作为value,用一个for循环来遍历数组,每次遍历的时候检查一下hashmap里有没有符合条件的key,没有则加入hashmap,有则返回当前下标和检查到符合条件的下标.</li></ul><h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="comment">//创建一个hashmap表</span></span><br><span class="line">        HashMap&lt;Integer,Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="comment">//遍历数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="comment">//先找一下有没有符合条件的</span></span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(target - nums[i])) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;</span><br><span class="line">                    map.get(target - nums[i]),i</span><br><span class="line">                &#125;;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//没有则加入hashmap</span></span><br><span class="line">            map.put(nums[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+    <content type="html"><![CDATA[<h2 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1. 两数之和"></a>1. 两数之和</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。</p><p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p><p>你可以按任意顺序返回答案。</p><p><strong>示例1</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [<span class="number">2</span>,<span class="number">7</span>,<span class="number">11</span>,<span class="number">15</span>], target = <span class="number">9</span></span><br><span class="line">输出：[<span class="number">0</span>,<span class="number">1</span>]</span><br><span class="line">解释：因为 nums[<span class="number">0</span>] + nums[<span class="number">1</span>] == <span class="number">9</span> ，返回 [<span class="number">0</span>, <span class="number">1</span>] 。</span><br></pre></td></tr></table></figure><p><strong>示例2</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [<span class="number">3</span>,<span class="number">2</span>,<span class="number">4</span>], target = <span class="number">6</span></span><br><span class="line">输出：[<span class="number">1</span>,<span class="number">2</span>]</span><br></pre></td></tr></table></figure><p><strong>示例3</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [<span class="number">3</span>,<span class="number">3</span>], target = <span class="number">6</span></span><br><span class="line">输出：[<span class="number">0</span>,<span class="number">1</span>]</span><br></pre></td></tr></table></figure><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><ul><li>暴力解法:给定一个数字,然后在数组中找出两个相加符合结果的数,首先得记录数组中有哪些数字,然后根据输入的数字来找另一个符合结果的数字,用一个for循环记录数组中出现过的数字,然后再用一个for循环遍历,寻找另一个符合结果的数字.</li><li>进阶解法: 利用暴力解法的时间复杂度为n2,为什么为n2呢?因为记录用了n,寻找用了n,则可以利用hashmap来替代,实现边记录边寻找.使用hashmap来进行进行实现,用数值做为key,用下标作为value,用一个for循环来遍历数组,每次遍历的时候检查一下hashmap里有没有符合条件的key,没有则加入hashmap,有则返回当前下标和检查到符合条件的下标.</li></ul><h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="comment">//创建一个hashmap表</span></span><br><span class="line">        HashMap&lt;Integer,Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="comment">//遍历数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="comment">//先找一下有没有符合条件的</span></span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(target - nums[i])) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;</span><br><span class="line">                    map.get(target - nums[i]),i</span><br><span class="line">                &#125;;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//没有则加入hashmap</span></span><br><span class="line">            map.put(nums[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
@@ -337,52 +374,6 @@
     <category term="Leetcode" scheme="www.rickzhang.cn/tags/Leetcode/"/>
     
     <category term="递归" scheme="www.rickzhang.cn/tags/%E9%80%92%E5%BD%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>你应该懂的排序</title>
-    <link href="www.rickzhang.cn/2021/07/14/%E4%BD%A0%E5%BA%94%E8%AF%A5%E6%87%82%E7%9A%84%E6%8E%92%E5%BA%8F/"/>
-    <id>www.rickzhang.cn/2021/07/14/%E4%BD%A0%E5%BA%94%E8%AF%A5%E6%87%82%E7%9A%84%E6%8E%92%E5%BA%8F/</id>
-    <published>2021-07-14T01:45:13.000Z</published>
-    <updated>2021-07-14T13:57:16.594Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1. 冒泡排序"></a>1. 冒泡排序</h2><p><strong>代码实现</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span> arr[])</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> end = arr.length - <span class="number">1</span>; end &gt; <span class="number">0</span>; end--) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> begin = <span class="number">1</span>; begin &lt;= end; begin++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[begin] &lt; arr[begin - <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">int</span> temp = arr[begin];</span><br><span class="line">                arr[begin] = arr[begin - <span class="number">1</span>];</span><br><span class="line">                arr[begin - <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>时间复杂度:O(n2)</p><h2 id="2-插入排序"><a href="#2-插入排序" class="headerlink" title="2. 插入排序"></a>2. 插入排序</h2><p><strong>代码实现</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">insertionSort</span><span class="params">(<span class="keyword">int</span> arr[])</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> temp = arr[i];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--) &#123;</span><br><span class="line">            <span class="keyword">if</span> ((arr[j] &gt; temp)) &#123;</span><br><span class="line">                arr[j + <span class="number">1</span>] = arr[j];</span><br><span class="line">                <span class="keyword">if</span> (j == <span class="number">0</span>) arr[j] =temp;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;1-冒泡排序&quot;&gt;&lt;a href=&quot;#1-冒泡排序&quot; class=&quot;headerlink&quot; title=&quot;1. 冒泡排序&quot;&gt;&lt;/a&gt;1. 冒泡排序&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;代码实现&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight j</summary>
-      
-    
-    
-    
-    
-    <category term="排序" scheme="www.rickzhang.cn/tags/%E6%8E%92%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>springcloud使用</title>
-    <link href="www.rickzhang.cn/2021/07/10/springcloud%E4%BD%BF%E7%94%A8/"/>
-    <id>www.rickzhang.cn/2021/07/10/springcloud%E4%BD%BF%E7%94%A8/</id>
-    <published>2021-07-10T06:29:39.000Z</published>
-    <updated>2021-07-13T06:22:08.158Z</updated>
-    
-    <content type="html"><![CDATA[<p>nacos注册中心<br>使用方式：<br>1.为项目导入alibaba的依赖<br>2.导入nacos的依赖<br>3.在main加注解<br>4.需要给每一个微服务加上自己的名字</p><p>想要远程调用别的服务<br>1.引入open-feign<br>2.编写一个接口，告诉springcloud这个接口需要调用远程服务<br>3.声明接口的每一个方法都是调用哪个远程服务的那个请求<br>4.开启远程调用功能<br>远程调用注意版本：<a href="https://blog.csdn.net/weixin_45729934/article/details/110310119" target="_blank" rel="noopener">https://blog.csdn.net/weixin_45729934/article/details/110310119</a></p><p>nacos作为配置中心<br>1.导入pom：nacos config starter<br>2.创建配置文件：bootstrap.properties<br>3.在127.0.0.1：8848中创建配置文件：项目名.properties<br>4.在controller加上@RefreshScope—-动态刷新</p><p>API网关</p><p>vue<br>初始化：npm init -y<br>安装vue依赖：npm install vue</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;nacos注册中心&lt;br&gt;使用方式：&lt;br&gt;1.为项目导入alibaba的依赖&lt;br&gt;2.导入nacos的依赖&lt;br&gt;3.在main加注解&lt;br&gt;4.需要给每一个微服务加上自己的名字&lt;/p&gt;
-&lt;p&gt;想要远程调用别的服务&lt;br&gt;1.引入open-feign&lt;br&gt;2.编写一个</summary>
-      
-    
-    
-    
-    
-    <category term="springcloud" scheme="www.rickzhang.cn/tags/springcloud/"/>
     
   </entry>
   
