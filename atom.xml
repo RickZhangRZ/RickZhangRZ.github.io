@@ -6,7 +6,7 @@
   <link href="www.rickzhang.cn/atom.xml" rel="self"/>
   
   <link href="www.rickzhang.cn/"/>
-  <updated>2021-10-02T11:53:40.069Z</updated>
+  <updated>2021-10-12T12:46:19.365Z</updated>
   <id>www.rickzhang.cn/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>给定一个链表的头结点head，判断该链表是否为回文结构</title>
+    <link href="www.rickzhang.cn/2021/10/11/%E7%BB%99%E5%AE%9A%E4%B8%80%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%B4%E7%BB%93%E7%82%B9head%EF%BC%8C%E5%88%A4%E6%96%AD%E8%AF%A5%E9%93%BE%E8%A1%A8%E6%98%AF%E5%90%A6%E4%B8%BA%E5%9B%9E%E6%96%87%E7%BB%93%E6%9E%84/"/>
+    <id>www.rickzhang.cn/2021/10/11/%E7%BB%99%E5%AE%9A%E4%B8%80%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%B4%E7%BB%93%E7%82%B9head%EF%BC%8C%E5%88%A4%E6%96%AD%E8%AF%A5%E9%93%BE%E8%A1%A8%E6%98%AF%E5%90%A6%E4%B8%BA%E5%9B%9E%E6%96%87%E7%BB%93%E6%9E%84/</id>
+    <published>2021-10-11T12:21:15.000Z</published>
+    <updated>2021-10-12T12:46:19.365Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>JWT从入门到使用</title>
@@ -354,33 +367,6 @@
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>从排序矩阵查找到分治算法</title>
-    <link href="www.rickzhang.cn/2021/07/18/%E4%BB%8E%E6%8E%92%E5%BA%8F%E7%9F%A9%E9%98%B5%E6%9F%A5%E6%89%BE%E5%88%B0%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/"/>
-    <id>www.rickzhang.cn/2021/07/18/%E4%BB%8E%E6%8E%92%E5%BA%8F%E7%9F%A9%E9%98%B5%E6%9F%A5%E6%89%BE%E5%88%B0%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/</id>
-    <published>2021-07-18T14:59:32.000Z</published>
-    <updated>2021-07-19T02:52:20.729Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="1. 题目描述"></a>1. 题目描述</h2><p>给定M×N矩阵，每一行、每一列都按升序排列，请编写代码找出某元素。</p><h2 id="2-解题思路"><a href="#2-解题思路" class="headerlink" title="2. 解题思路"></a>2. 解题思路</h2><p>维护一个行指针和一个列指针，利用分治算法，从右上角元素出发，比较目标元素与当前数值</p><ul><li>如果当前元素等于目标值，则返回true</li><li>如果当前元素小于目标值，则当前元素左侧的元素都会小于目标值，指针下移动</li><li>如果当前元素大于目标值，则当前元素右下方都会大于目标值，指针左移</li><li>如果指针在矩阵外，返回false  <h2 id="3-代码实现"><a href="#3-代码实现" class="headerlink" title="3. 代码实现"></a>3. 代码实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">searchMatrix</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = matrix.length; <span class="comment">//行数</span></span><br><span class="line">        <span class="keyword">if</span> (m == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> n = matrix[<span class="number">0</span>].length;<span class="comment">//列数</span></span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//初始位置假设在右上角位置，定义一个行指针和一个列指针</span></span><br><span class="line">        <span class="keyword">int</span> currentRow = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> currentColumn = n - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (currentColumn &gt;= <span class="number">0</span> &amp;&amp; currentRow &lt; m) &#123;</span><br><span class="line">            <span class="comment">//当前元素等于目标值，返回true</span></span><br><span class="line">            <span class="keyword">if</span> (matrix[currentRow][currentColumn] == target) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            <span class="comment">//如果当前元素小于目标值，则列指针下移</span></span><br><span class="line">            <span class="keyword">if</span> (matrix[currentRow][currentColumn] &lt; target) &#123;</span><br><span class="line">                currentRow++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;<span class="comment">//如果当前元素大于目标值，则列指针左移</span></span><br><span class="line">                currentColumn--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>时间复杂度:O(m+n)<br>空间复杂度:O(1)</li></ul><p>执行结果：<br>通过</p><p>执行用时：<br>5 ms<br>, 在所有 Java 提交中击败了<br>98.91%<br>的用户</p><p>内存消耗：<br>43.9 MB<br>, 在所有 Java 提交中击败了<br>52.11%<br>的用户</p><h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h2><p>该题目使用双指针，并且利用了分治思维，那什么是分治算法呢？</p><ul><li>把复杂的问题分成两个或者更多的相同或者相似的子问题，直到子问题可直接求解，原问题的解即子问题的解的合并<br>分治法解题的一般步骤:</li><li>分解:将要解决的问题划分为若干规模较小的同类问题</li><li>求解:递归地求解各个子问题，当子问题划分得足够小时，用较简单的方法解决</li><li>合并:按原问题的要求，将子问题的解逐层合并构成原问题的解<h2 id="5-扩展题目"><a href="#5-扩展题目" class="headerlink" title="5. 扩展题目"></a>5. 扩展题目</h2></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;1-题目描述&quot;&gt;&lt;a href=&quot;#1-题目描述&quot; class=&quot;headerlink&quot; title=&quot;1. 题目描述&quot;&gt;&lt;/a&gt;1. 题目描述&lt;/h2&gt;&lt;p&gt;给定M×N矩阵，每一行、每一列都按升序排列，请编写代码找出某元素。&lt;/p&gt;
-&lt;h2 id=&quot;2-解题思路</summary>
-      
-    
-    
-    
-    
-    <category term="Leetcode" scheme="www.rickzhang.cn/tags/Leetcode/"/>
-    
-    <category term="双指针" scheme="www.rickzhang.cn/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
-    
-    <category term="分治" scheme="www.rickzhang.cn/tags/%E5%88%86%E6%B2%BB/"/>
     
   </entry>
   
